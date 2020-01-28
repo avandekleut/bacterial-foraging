@@ -2,6 +2,7 @@ from mpl_toolkits.mplot3d import Axes3D
 from matplotlib.colors import LightSource
 from matplotlib import cbook
 from matplotlib import cm
+from matplotlib import animation
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -14,8 +15,11 @@ def rastrigin(theta, A = 10):
     n = theta.size
     return A*n + (theta**2 - A*np.cos(2*np.pi*theta)).sum()
 
-def simple_quadratic(theta):
+def sphere(theta):
     return (theta**2).sum()
+
+def rosenbrock(theta):
+    return (100*(theta[1:] - theta[:-1]**2)**2 + (1-theta)**2).sum()
 
 def plot(J, rng=(-5.12, 5.12), num=100, cm=cm.rainbow):
     # generating data
@@ -70,57 +74,69 @@ class Colony:
     Contains information about the function J to be optimized.
     Contains an iterable of bacterium to do the optimization.
     """
-    def __init__(self, f, S, p, C, rng):
+    def __init__(self, J, S, p, C, rng, d_attract=0.1, w_attract=0.2, h_repellant=0.1, w_repellant=10):
         """
-        f: callable(theta), function to optimize
+        J: callable(theta), function to optimize
         S: int, size of colony
         p: int, number of dimensions
         C: callable(i), returns positive float, step-size
-        """
-        self.S = [Bacterium(p, C(i), rng) for i in range(S)]
-        self.J = self.J(f)
-
-    def J_cc(self, theta, d_attract, w_attract, h_repellant, w_repellant):
-        """
-        Cell-to-cell attraction/repellant
-        theta: p-dimensional numpy array, arbitrary position
-        (P): ommitted. Only included in paper for mathematical reasons.
         d_attract: positive float, depth of attraction
         w_attract: positive float, width of attraction
         h_reppelant: positive float, depth of repellant
         w_repellant: positive float, width of repellant
+        """
+        self.S   = [Bacterium(p, C(i), rng) for i in range(S)]
+        self.J   = J
+        self.rng = rng
+
+        self.d_attract   = d_attract
+        self.w_attract   = w_attract
+        self.h_repellant = h_repellant
+        self.w_repellant = w_repellant
+
+    def J_cc(self, theta):
+        """
+        Cell-to-cell attraction/repellant
+        theta: p-dimensional numpy array, arbitrary position
         """
         result = 0
 
         for i in range(len(self.S)):
             theta_i = self.S[i].theta
             squared_distance = ((theta - theta_i)**2).sum()
-            result += -d_attract*np.exp(-w_attract*squared_distance)  + h_repellant*np.exp(-w_repellant*squared_distance)
+            result += -self.d_attract*np.exp(-self.w_attract*squared_distance)  + self.h_repellant*np.exp(-self.w_repellant*squared_distance)
         return result
 
-    def J(self, f):
-        def inner(i, j, k, l):
-            theta_i = self.S[i].theta
-            return f(theta_i)
-        return inner
-
-    def simulate(self, p_ed, N_ed, N_re, N_c, N_s, d_attract=0.1, w_attract=0.2, h_repellant=0.1, w_repellant=10):
+    def simulate(self, p_ed, N_ed, N_re, N_c, N_s):
+        """
+        p_ed: float in [0, 1] probability of elimination-dispersal
+        N_ed: number of elimination-dispersal iterations
+        N_re: number of reproduction iterations
+        N_c:  number of chemotaxis steps
+        N_s:  maximum length for a run
+        d_attract: positive float, depth of attraction
+        w_attract: positive float, width of attraction
+        h_reppelant: positive float, depth of repellant
+        w_repellant: positive float, width of repellant
+        """
         for l in range(N_ed):
             # elimination-dispersal
-            print('ed')
+            print(f'Elimination dispersal {l+1}/{N_ed}')
             for k in range(N_re):
                 # reproduction
-                print('rep')
+                print(f'\t Reproduction {k+1}/{N_re}')
                 for j in range(N_c):
                     # chemotaxis
-
+                    print(f'\t\t Chemotaxis {j+1}/{N_c}')
                     for i in range(len(self.S)):
+                        print(f'\t\t\t Bacterium {i+1}/{len(self.S)}\r', end='')
                         bacterium = self.S[i]
 
                         # compute loss
-                        J = self.J(i, j, k, l) + self.J_cc(bacterium.theta, d_attract, w_attract, h_repellant, w_repellant)
+                        J = self.J(bacterium.theta)
+                        J_cc = self.J_cc(bacterium.theta)
 
-                        bacterium.J_last = J
+                        bacterium.J_last = J + J_cc
                         bacterium.J_history.append(J)
                         bacterium.theta_history.append(bacterium.theta.copy())
 
@@ -130,36 +146,26 @@ class Colony:
 
                         # run
                         for m in range(N_s):
-                            J = self.J(i, j, k, l) + self.J_cc(bacterium.theta, d_attract, w_attract, h_repellant, w_repellant)
+                            J = self.J(bacterium.theta)
+                            J_cc = self.J_cc(bacterium.theta)
 
-                            if J < bacterium.J_last:
-                                bacterium.J_last = J
+                            if (J + J_cc) < bacterium.J_last:
+                                bacterium.J_last = J + J_cc
                                 bacterium.theta = bacterium.theta + bacterium.C*delta_i/np.sqrt(delta_i.T @ delta_i)
                             else:
                                 m = N_s
 
                             bacterium.J_history.append(J)
                             bacterium.theta_history.append(bacterium.theta.copy())
-
+                    print()
                 # reproduction
 
                 self.S = sorted(self.S, key=lambda bacterium: sum(bacterium.J_history), reverse=True) # sort by increasing total cost
 
-
-                ######
-                fig = plt.figure()
-                ax = fig.gca()
-                for bacterium in self.S:
-                    ax.plot(bacterium.J_history)
-                plt.show()
-
-                print(sum([self.J(i, j, k, l) + self.J_cc(self.S[i].theta, d_attract, w_attract, h_repellant, w_repellant) for i in range(len(self.S))]))
-                ######
-
-                for i in range(len(self.S)):
-                    bacterium = self.S[i]
-                    bacterium.J_history.clear() # reset the history of each bacterium
-                    bacterium.theta_history.clear()
+                # for i in range(len(self.S)):
+                #     bacterium = self.S[i]
+                #     bacterium.J_history.clear() # reset the history of each bacterium
+                    # bacterium.theta_history.clear()
 
                 self.S = self.S[:len(self.S)//2] # take best half of offspring
                 offspring = [bacterium.clone() for bacterium in self.S] # reproduce these offspring
@@ -171,8 +177,38 @@ class Colony:
                 if np.random.rand() < p_ed:
                     bacterium.theta = bacterium.rng[0] + np.random.rand(bacterium.p)*(bacterium.rng[1] - bacterium.rng[0]) # randomly transplant position of bacterium
 
+    def plot_path2(self, speed=10):
+        x = np.linspace(*self.rng, num=100)
+        y = np.linspace(*self.rng, num=100)
+        X, Y = np.meshgrid(x, y)
+        theta = np.array([X, Y])
+        Z = np.apply_along_axis(self.J, 0, theta)
 
-c = Colony(simple_quadratic, 10, 2, lambda i: 0.1, (-20, 20))
-# c = Colony(rastrigin, 100, 2, lambda i: 0.1, (-2, 2))
-# c.simulate(0.05, 3, 5, 200, 4)
-c.simulate(0.05, 3, 10, 20, 4)
+    def plot_paths(self, speed=10):
+        x = np.linspace(*self.rng, num=100)
+        y = np.linspace(*self.rng, num=100)
+        X, Y = np.meshgrid(x, y)
+        theta = np.array([X, Y])
+        Z = np.apply_along_axis(self.J, 0, theta)
+
+        fig = plt.figure()
+        ax = fig.gca()
+        ax.set_ylim(*self.rng)
+        ax.set_xlim(*self.rng)
+        contour = ax.contour(X, Y, Z, cmap=cm.rainbow)
+
+        def paths(i):
+            for bacterium in self.S:
+                ax.plot(*np.array(bacterium.theta_history[:i*speed]).T, color='gray') # paths
+            return ax,
+
+        max_path_length = max([len(bacterium.theta_history) for bacterium in self.S])
+        ani = animation.FuncAnimation(fig, paths, frames=range(max_path_length//speed), interval=1, repeat=False)
+
+        plt.show()
+
+plot(rosenbrock)
+# c = Colony(J=simple_quadratic, S=30, p=2, C=lambda i: 0.1, rng=(-20, 20))
+c = Colony(J=rosenbrock, S=20, p=2, C=lambda i: 0.1, rng=(-5.12, 5.12))
+c.simulate(p_ed=0.05, N_ed=4, N_re=5, N_c=10, N_s=10)
+c.plot_paths(speed=10)
