@@ -8,10 +8,6 @@ import numpy as np
 
 
 def rastrigin(theta, A = 10):
-    """
-    Highly nonconvex function with minimum at 0.
-    https://en.wikipedia.org/wiki/Rastrigin_function
-    """
     n = theta.size
     return A*n + (theta**2 - A*np.cos(2*np.pi*theta)).sum()
 
@@ -20,6 +16,11 @@ def sphere(theta):
 
 def rosenbrock(theta):
     return (100*(theta[1:] - theta[:-1]**2)**2 + (1-theta)**2).sum()
+
+def easom(theta):
+    assert theta.size == 2
+    x, y = theta[0], theta[1]
+    return -np.cos(x)*np.cos(y)*np.exp(-((x-np.pi)**2 + (y-np.pi)**2))
 
 def plot(J, rng=(-5.12, 5.12), num=100, cm=cm.rainbow):
     # generating data
@@ -94,15 +95,18 @@ class Colony:
         self.h_repellant = h_repellant
         self.w_repellant = w_repellant
 
-    def J_cc(self, theta):
+    def J_cc(self, theta, P=None):
         """
         Cell-to-cell attraction/repellant
         theta: p-dimensional numpy array, arbitrary position
         """
         result = 0
 
-        for i in range(len(self.S)):
-            theta_i = self.S[i].theta
+        if P is None:
+            P = [bacterium.theta for bacterium in self.S]
+
+        for i in range(len(P)):
+            theta_i = P[i]
             squared_distance = ((theta - theta_i)**2).sum()
             result += -self.d_attract*np.exp(-self.w_attract*squared_distance)  + self.h_repellant*np.exp(-self.w_repellant*squared_distance)
         return result
@@ -177,12 +181,46 @@ class Colony:
                 if np.random.rand() < p_ed:
                     bacterium.theta = bacterium.rng[0] + np.random.rand(bacterium.p)*(bacterium.rng[1] - bacterium.rng[0]) # randomly transplant position of bacterium
 
-    def plot_path2(self, speed=10):
+    def plot_paths2(self, speed=10):
+        # generating data
         x = np.linspace(*self.rng, num=100)
         y = np.linspace(*self.rng, num=100)
         X, Y = np.meshgrid(x, y)
         theta = np.array([X, Y])
-        Z = np.apply_along_axis(self.J, 0, theta)
+
+        fig = plt.figure()
+        ax = fig.gca(projection='3d')
+
+        def surfaces(i):
+            print(f'frame {i}')
+            ax.cla()
+
+            P = []
+            for bacterium in self.S:
+                try:
+                    P.append(bacterium.theta_history[i])
+                except:
+                    pass
+
+            Z = np.apply_along_axis(lambda theta: self.J(theta) + self.J_cc(theta, P=P), 0, theta)
+            ls = LightSource(270, 45)
+            rgb = ls.shade(Z, cmap=cm.rainbow, vert_exag=0.1, blend_mode='soft')
+            surf = ax.plot_surface(X, Y, Z, cmap=cm.rainbow, alpha=1,
+                               linewidth=1, facecolors=rgb, antialiased=False)
+
+            contour = ax.contour(X, Y, Z, cmap=cm.rainbow, offset=np.min(Z))
+
+            return ax,
+
+        max_path_length = max([len(bacterium.theta_history) for bacterium in self.S])
+
+        print(max_path_length//speed)
+
+        ani = animation.FuncAnimation(fig, surfaces, frames=range(max_path_length//speed), interval=1, repeat=False)
+
+        plt.show()
+        ani.save('', fps=60)
+
 
     def plot_paths(self, speed=10):
         x = np.linspace(*self.rng, num=100)
@@ -207,8 +245,23 @@ class Colony:
 
         plt.show()
 
-plot(rosenbrock)
-# c = Colony(J=simple_quadratic, S=30, p=2, C=lambda i: 0.1, rng=(-20, 20))
-c = Colony(J=rosenbrock, S=20, p=2, C=lambda i: 0.1, rng=(-5.12, 5.12))
-c.simulate(p_ed=0.05, N_ed=4, N_re=5, N_c=10, N_s=10)
-c.plot_paths(speed=10)
+colony_args = dict(
+    J=lambda theta:0,
+    S=6,
+    p=2,
+    C=lambda i: 0.5,
+    rng=(-5.12, 5.12),
+    h_repellant=3
+)
+
+simulation_args = dict(
+    p_ed=0.05,
+    N_ed=1,
+    N_re=1,
+    N_c=10,
+    N_s=10
+)
+
+c = Colony(**colony_args)
+c.simulate(**simulation_args)
+c.plot_paths(speed=1)
