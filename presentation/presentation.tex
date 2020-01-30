@@ -133,84 +133,52 @@
     \item Tends to switch to a tumble (search for more)
     \item Moves randomly which searching for more nutrient gradients to exploit
   \end{itemize}
+  \item Call a tumble followed by a run a ``chemotaxis step''
 \end{itemize}
 \end{frame}
 
 \begin{frame}
 \frametitle{Algorithm for a Single Bacterium}
-% \begin{multicols}{2}
 \begin{algorithmic}[1]
-\State $\theta \sim \mathcal{U}^p(\text{min}, \text{max})$
 \For {$j \gets 1 \dots N_c $}:
-  \State $\Delta \sim \mathcal{U}^p(-1, 1)$
-  \State $J_\text{last} \gets J(\theta)$
-  \State $\theta \gets \theta + C \frac{\Delta}{\| \Delta \|}$
-  \For {$m \gets 1 \dots N_s$}:
-    \If {$J(\theta) < J_\text{last}$}:
-      \State $J_\text{last} \gets J(\theta)$
-      \State $\theta \gets \theta + C \frac{\Delta}{\| \Delta \|}$
-    \Else
-      \State $m \gets N_s$
-    \EndIf
-  \EndFor
+  \State $\phi \sim \mathcal{U}$
+  \State $\theta \gets \theta + c \phi$
+  \While {$J(\theta + c \phi) < J(\theta)$}:
+    \State $\theta \gets \theta + c \phi$
+  \EndWhile
 \EndFor
 \end{algorithmic}
-% \end{multicols}
+\begin{itemize}
+  \item $\theta$: $p$-dimensional vector (randomly initialized)
+  \item $N_c$: number of chemotaxis steps
+  \item $\phi \sim \mathcal{U}$: a random unit vector
+  \item $c$: a step-size
+\end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{Algorithm for a Colony}
-\begin{algorithmic}[1]
-\For {$i \gets 1 \dots S$}:
-  \State $\theta_i \sim \mathcal{U}^p(\text{min}, \text{max})$
-\EndFor
-\For {$j \gets 1 \dots N_c $}:
-  \For {$i \gets 1 \dots S$}:
-    \State $\Delta_i \sim \mathcal{U}^p(-1, 1)$
-    \State $J_\text{last} \gets J(\theta_i)$
-    \State $\theta_i \gets \theta_i + C \frac{\Delta_i}{\| \Delta_i \|}$
-    \For {$m \gets 1 \dots N_s$}:
-      \If {$J(\theta_i) < J_\text{last}$}:
-        \State $J_\text{last} \gets J(\theta_i)$
-        \State $\theta_i \gets \theta_i + C \frac{\Delta_i}{\| \Delta_i \|}$
-      \Else
-        \State $m \gets N_s$
-      \EndIf
-    \EndFor
-  \EndFor
-\EndFor
-\end{algorithmic}
+\frametitle{Loss Function to Optimize}
+\begin{columns}
+\column{0.5\textwidth}
+\begin{center}
+\includegraphics[scale=0.4]{assets/sphere}
+\end{center}
+\column{0.5\textwidth}
+\includegraphics[scale=0.4]{assets/rastrigin}
+\end{columns}
 \end{frame}
 
 \begin{frame}
-\frametitle{E. Coli Swarming}
-
+\frametitle{Loss Function to Optimize}
+\begin{columns}
+\column{0.5\textwidth}
+\begin{center}
+\includegraphics[scale=0.4]{assets/sphere_eval}
+\end{center}
+\column{0.5\textwidth}
+\includegraphics[scale=0.4]{assets/rastrigin_eval}
+\end{columns}
 \end{frame}
-
-\begin{frame}
-\frametitle{Algorithm for a Colony with Swarming}
-\begin{algorithmic}[1]
-\For {$i \gets 1 \dots S$}:
-  \State $\theta_i \sim \mathcal{U}^p(\text{min}, \text{max})$
-\EndFor
-\For {$j \gets 1 \dots N_c $}:
-  \For {$i \gets 1 \dots S$}:
-    \State $\Delta_i \sim \mathcal{U}^p(-1, 1)$
-    \State $J_\text{last} \gets J(\theta_i) + J_{cc}(\theta_i)$
-    \State $\theta_i \gets \theta_i + C(i) \frac{\Delta_i}{\| \Delta_i \|}$
-    \For {$m \gets 1 \dots N_s$}:
-      \If {$J(\theta_i) < J_\text{last}$}:
-        \State $J_\text{last} \gets J(\theta_i) + J_{cc}(\theta_i)$
-        \State $\theta_i \gets \theta_i + C(i) \frac{\Delta_i}{\| \Delta_i \|}$
-      \Else
-        \State $m \gets N_s$
-      \EndIf
-    \EndFor
-  \EndFor
-\EndFor
-\end{algorithmic}
-\end{frame}
-
 
 
 % cons
