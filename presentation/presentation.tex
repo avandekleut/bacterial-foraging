@@ -90,7 +90,7 @@
 
 \section{Biological and Computational Model}
 \begin{frame}
-\frametitle{E. coli}
+\frametitle{\textit{E. coli}}
 \begin{itemize}
   \item<1-> Model organism
   \begin{itemize}
@@ -107,7 +107,7 @@
 \end{frame}
 
 \begin{frame}
-\frametitle{E. Coli Behaviour}
+\frametitle{\textit{\textit{E. coli}} Behaviour}
 \begin{itemize}
   \item Swims using left-handed helical flagella (``propellers'')
   \begin{itemize}
@@ -121,9 +121,9 @@
 \end{frame}
 
 \begin{frame}
-\frametitle{E. Coli Behaviour}
+\frametitle{\textit{\textit{E. coli}} Behaviour}
 \begin{itemize}
-  \item If during a tumble E. Coli swims down a nutrient concentration gradient:
+  \item If during a tumble \textit{\textit{E. coli}} swims down a nutrient concentration gradient:
   \begin{itemize}
     \item Prolongs time spent on a run
     \item Continues moving in the same direction
@@ -161,25 +161,68 @@
 \begin{columns}
 \column{0.5\textwidth}
 \begin{center}
-\includegraphics[scale=0.4]{assets/sphere}
+\includegraphics[scale=0.3]{assets/sphere}
 \end{center}
 \column{0.5\textwidth}
-\includegraphics[scale=0.4]{assets/rastrigin}
+\includegraphics[scale=0.3]{assets/rastrigin}
 \end{columns}
 \end{frame}
 
 \begin{frame}
-\frametitle{Loss Function to Optimize}
+\frametitle{Results of Single Bacterium}
 \begin{columns}
 \column{0.5\textwidth}
 \begin{center}
-\includegraphics[scale=0.4]{assets/sphere_eval}
+\includegraphics[scale=0.3]{assets/sphere_J}
+\includegraphics[scale=0.3]{assets/sphere_theta}
 \end{center}
 \column{0.5\textwidth}
-\includegraphics[scale=0.4]{assets/rastrigin_eval}
+\includegraphics[scale=0.3]{assets/rastrigin_J}
+\includegraphics[scale=0.3]{assets/rastrigin_theta}
 \end{columns}
 \end{frame}
 
+\begin{frame}
+\frametitle{Algorithm for a Colony}
+\begin{algorithmic}[1]
+\For {$j \gets 1 \dots N_c $}:
+  \For {$i \gets 1 \dots S$}:
+    \State $\phi \sim \mathcal{U}$
+    \State $\theta_i \gets \theta_i + c_i \phi$
+    \While {$J(\theta_i + c_i \phi) + J_{cc}(\theta_i + c_i \phi) < J(\theta_i) + J_{cc}(\theta_i)$}:
+      \State $\theta_i \gets \theta_i + c_i \phi$
+    \EndWhile
+  \EndFor
+\EndFor
+\end{algorithmic}
+\begin{itemize}
+  \item $\theta_i$: $i$th $p$-dimensional vector (randomly initialized)
+  \item $N_c$: number of chemotaxis steps
+  \item $S$: number of bacteria in the colony
+  \item $\phi \sim \mathcal{U}$: a random unit vector
+  \item $c$: a step-size for bacterium $i$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{$J_{cc}$ and swarming behaviour}
+\begin{itemize}
+  \item \textit{\textit{E. coli}} do social foraging
+  \item Secrete a substance to indicate to attract nearby \textit{\textit{E. coli}} and encourage swarming
+  \item Strength of signal diffuses over space
+  \item Use gaussian distribution to model this
+\end{itemize}
+\begin{align*}
+J_{cc}(\theta) = \sum_{i=1}^S &-d^+ \exp \left( -w^+ (\theta - \theta_i)^T (\theta - \theta_i) \right) \\ &+ d^- \exp \left( -w^- (\theta - \theta_i)^T (\theta - \theta_i) \right)
+\end{align*}
+\end{frame}
+
+\begin{frame}
+\frametitle{$J_{cc}$ and swarming behaviour}
+\begin{center}
+\includegraphics[scale=0.5]{assets/swarming}
+\end{center}
+\end{frame}
 
 % cons
 % no attempts to compare to actual biological
