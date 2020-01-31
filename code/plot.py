@@ -39,7 +39,7 @@ def plot_surface(J,  filename=None, rng=(-5.12, 5.12), num=100, cm=cm.rainbow):
         plt.show()
     else:
         plt.savefig(filename)
-    return ax
+    plt.close('all')
 
 def plot_J_cc(title=None, filename=None, S=3, rng=(-5.12, 5.12), num=100, cm=cm.rainbow, d_attract=0.1, w_attract=0.2, h_repellant=0.1, w_repellant=10):
     """
@@ -89,7 +89,7 @@ def plot_J_cc(title=None, filename=None, S=3, rng=(-5.12, 5.12), num=100, cm=cm.
         plt.show()
     else:
         plt.savefig(filename)
-    return ax
+    plt.close('all')
 
 def plot_J(J_histories, title=None, filename=None):
     """
@@ -105,12 +105,12 @@ def plot_J(J_histories, title=None, filename=None):
     ax.set_title(title)
     for J_history in J_histories:
         ax.plot(J_history, alpha=0.2, color='r')
-    ax.text(0.5, 0.5, r'$J^*$ =' f'{np.min(J_histories):.2}', horizontalalignment='center', verticalalignment='center', transform=ax.transAxes, fontsize='medium')
+    ax.text(0.5, 0.5, r'$J^*$ =' f'{np.min(J_histories):.2}', horizontalalignment='center', verticalalignment='center', transform=ax.transAxes, fontsize='large')
     if filename is None:
         plt.show()
     else:
         plt.savefig(f'{filename}_J.pdf')
-    return ax
+    plt.close('all')
 
 def plot_J_re(J_histories, title=None, filename=None):
     """
@@ -132,14 +132,14 @@ def plot_J_re(J_histories, title=None, filename=None):
         colour = colours[k]
         for J_history in generation:
             ax.plot(range(k*N_c, (k+1)*N_c), J_history, alpha=0.2, color=colour)
-    ax.text(0.5, 0.5, r'$J^*$ =' f'{np.min(J_histories):.2}', horizontalalignment='center', verticalalignment='center', transform=ax.transAxes, fontsize='medium')
+    ax.text(0.5, 0.5, r'$J^*$ =' f'{np.min(J_histories):.2}', horizontalalignment='center', verticalalignment='center', transform=ax.transAxes, fontsize='large')
     if filename is None:
         plt.show()
     else:
         plt.savefig(f'{filename}_J.pdf')
-    return ax
+    plt.close('all')
 
-def plot_paths(J, theta_histories, title=None, filename=None, num=100, cm=cm.rainbow, ):
+def plot_paths(J, theta_histories, title=None, filename=None, rng=(-5.12, 5.12), num=100, cm=cm.rainbow, ):
     """
     Plots the paths taken during optimization.
     J: np.ndarray -> float      function to minimize
@@ -149,7 +149,7 @@ def plot_paths(J, theta_histories, title=None, filename=None, num=100, cm=cm.rai
     num: int                    how many points to use for contour plot grid
     cm: matplotlib.cm           colormap to use for plotting
     """
-    rng = (np.min(theta_histories), np.max(theta_histories))
+
     fig = plt.figure()
     ax = fig.gca()
     ax.set_title(title)
@@ -167,9 +167,9 @@ def plot_paths(J, theta_histories, title=None, filename=None, num=100, cm=cm.rai
         plt.show()
     else:
         plt.savefig(f'{filename}_theta.pdf')
-    return ax
+    plt.close('all')
 
-def plot_paths_re(J, theta_histories, title=None, filename=None, num=100, cm=cm.rainbow, ):
+def plot_paths_re(J, theta_histories, title=None, filename=None, rng=(-5.12, 5.12), num=100, cm=cm.rainbow, ):
     """
     Plots the paths taken during optimization.
     J: np.ndarray -> float      function to minimize
@@ -179,7 +179,7 @@ def plot_paths_re(J, theta_histories, title=None, filename=None, num=100, cm=cm.
     num: int                    how many points to use for contour plot grid
     cm: matplotlib.cm           colormap to use for plotting
     """
-    rng = (np.min(theta_histories), np.max(theta_histories))
+
     fig = plt.figure()
     ax = fig.gca()
     ax.set_title(title)
@@ -203,7 +203,7 @@ def plot_paths_re(J, theta_histories, title=None, filename=None, num=100, cm=cm.
         plt.show()
     else:
         plt.savefig(f'{filename}_theta.pdf')
-    return ax
+    plt.close('all')
 
 def evaluate_sb(J, title=None, filename=None, **simulation_args):
     """
@@ -274,21 +274,22 @@ def evaluate_col_ed(J, title=None, filename=None, **simulation_args):
         plot_J_re(J_history, title=title, filename=f'{filename}_{l}')
 
         theta_history = theta_histories[l]
-        plot_paths_re(J, theta_histories, title=title, filename=f'{filename}_{l}')
+        plot_paths_re(J, theta_history, title=title, filename=f'{filename}_{l}')
 
 if __name__ == "__main__":
     """
     Used to produce the figures from the presentation.
     """
-    from losses import rastrigin
+    from losses import rastrigin as J
 
-    plot_surface(rastrigin,
+    plot_surface(J,
         filename='presentation/assets/rastrigin',
         rng=(-5.12,5.12),
         num=100,
         cm=cm.rainbow)
 
-    evaluate_sb(rastrigin,
+    np.random.seed(17)
+    evaluate_sb(J,
         title=r'$p$=2, $c$=0.1, $N_c$=100',
         filename='presentation/assets/rastrigin',
         p=2,
@@ -296,6 +297,7 @@ if __name__ == "__main__":
         N_c=100,
         rng=(-5.12,5.12))
 
+    np.random.seed(17)
     plot_J_cc(title=r'$d_\mathregular{attract}$=0.1, $w_\mathregular{attract}$=0.2, $h_\mathregular{repellant}$=0.1, $w_\mathregular{repellant}$=10',
         filename='presentation/assets/swarming',
         S=3,
@@ -306,7 +308,8 @@ if __name__ == "__main__":
         h_repellant=0.1,
         w_repellant=10)
 
-    evaluate_col(rastrigin,
+    np.random.seed(17)
+    evaluate_col(J,
         title=r'$S$=10, $p$=2, $c$=0.1, $N_c$=100' '\n' r'$d_\mathregular{attract}$=0.1, $w_\mathregular{attract}$=0.2, $h_\mathregular{repellant}$=0.1, $w_\mathregular{repellant}$=10',
         filename='presentation/assets/rastrigin_colony',
         S=10,
@@ -319,7 +322,8 @@ if __name__ == "__main__":
         h_repellant=0.1,
         w_repellant=10)
 
-    evaluate_col(rastrigin,
+    np.random.seed(17)
+    evaluate_col(J,
         title=r'$S$=10, $p$=2, $c$=0.1, $N_c$=100' '\n' r'$d_\mathregular{attract}$=100, $w_\mathregular{attract}$=0.01, $h_\mathregular{repellant}$=0.4, $w_\mathregular{repellant}$=0.01',
         filename='presentation/assets/rastrigin_colony_tuned',
         S=10,
@@ -332,7 +336,7 @@ if __name__ == "__main__":
         h_repellant=0.4,
         w_repellant=0.01)
 
-
+    np.random.seed(17)
     plot_J_cc(title=r'$S$=3, $p$=2, $d_\mathregular{attract}$=0.1, $w_\mathregular{attract}$=0.2, $h_\mathregular{repellant}$=0.1, $w_\mathregular{repellant}$=10',
         filename='presentation/assets/swarming_tuned',
         S=3,
@@ -343,7 +347,8 @@ if __name__ == "__main__":
         h_repellant=0.4,
         w_repellant=0.01)
 
-    evaluate_col_re(rastrigin,
+    np.random.seed(17)
+    evaluate_col_re(J,
         title=r'$N_{re}$=4, $S$=10, $p$=2, $c$=0.1, $N_c$=100' '\n' r'$d_\mathregular{attract}$=100, $w_\mathregular{attract}$=0.01, $h_\mathregular{repellant}$=0.4, $w_\mathregular{repellant}$=0.01',
         filename='presentation/assets/rastrigin_colony_re',
         N_re=4,
@@ -357,7 +362,8 @@ if __name__ == "__main__":
         h_repellant=0.4,
         w_repellant=0.01)
 
-    evaluate_col(rastrigin,
+    np.random.seed(17)
+    evaluate_col(J,
         title=r'$S$=10, $p$=2, $c$=0.1, $N_c$=100' '\n' r'$d_\mathregular{attract}$=100, $w_\mathregular{attract}$=0.01, $h_\mathregular{repellant}$=0.4, $w_\mathregular{repellant}$=0.01',
         filename='presentation/assets/rastrigin_colony_400',
         S=10,
@@ -370,10 +376,11 @@ if __name__ == "__main__":
         h_repellant=0.4,
         w_repellant=0.01)
 
-    evaluate_col_ed(rastrigin,
-        title=r'$N_{ed}$=2, $p_{ed}$=0.25, $N_{re}$=4, $$S$=10, $p$=2, $c$=0.1, $N_c$=100' '\n' r'$d_\mathregular{attract}$=100, $w_\mathregular{attract}$=0.01, $h_\mathregular{repellant}$=0.4, $w_\mathregular{repellant}$=0.01',
+    np.random.seed(17)
+    evaluate_col_ed(J,
+        title=r'$N_{ed}$=2, $p_{ed}$=0.25, $N_{re}$=4, $S$=10, $p$=2, $c$=0.1, $N_c$=100' '\n' r'$d_\mathregular{attract}$=100, $w_\mathregular{attract}$=0.01, $h_\mathregular{repellant}$=0.4, $w_\mathregular{repellant}$=0.01',
         filename='presentation/assets/rastrigin_colony_ed',
-        N_ed=2,
+        N_ed=4,
         p_ed=0.25,
         N_re=4,
         S=10,
