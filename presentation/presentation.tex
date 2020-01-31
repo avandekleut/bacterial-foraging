@@ -9,9 +9,9 @@
 \usetheme{Boadilla}
 \usecolortheme{seahorse}
 
-\title{Biomimicry of Bacterial Foraging}
+\title[Foraging]{Biomimicry of Bacterial Foraging}
 \subtitle{for Distributed Optimization and Control}
-\author{
+\author[Passino, by Van de Kleut]{
   Kevin M. Passino\inst{1}\\
   Presented by: Alexander Van de Kleut\inst{2}
 }
@@ -23,7 +23,7 @@
   University of Waterloo\\
   Centre for Theoretical Neuroscience
 }
-\date{IEEE Control Systems Magazine, 2002}
+\date[W20]{IEEE Control Systems Magazine, 2002}
 
 \begin{document}
 
@@ -170,14 +170,30 @@
 \begin{frame}
 \frametitle{Results of Single Bacterium}
 \begin{columns}
-\column{0.5\textwidth}
-\begin{center}
-\includegraphics[scale=0.3]{assets/sphere_J}
-\includegraphics[scale=0.3]{assets/sphere_theta}
-\end{center}
-\column{0.5\textwidth}
-\includegraphics[scale=0.3]{assets/rastrigin_J}
-\includegraphics[scale=0.3]{assets/rastrigin_theta}
+  \column{0.5\textwidth}
+    \begin{center}
+      \includegraphics[scale=0.3]{assets/sphere_J}
+      \includegraphics[scale=0.3]{assets/sphere_theta}
+    \end{center}
+  \column{0.5\textwidth}
+    \begin{itemize}
+      \item Relatively consistent performance for a convex function.
+    \end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Results of Single Bacterium}
+\begin{columns}
+  \column{0.5\textwidth}
+    \begin{center}
+      \includegraphics[scale=0.3]{assets/rastrigin_J}
+      \includegraphics[scale=0.3]{assets/rastrigin_theta}
+    \end{center}
+  \column{0.5\textwidth}
+    \begin{itemize}
+      \item Relatively inconsistent performance for a highly nonconvex function.
+    \end{itemize}
 \end{columns}
 \end{frame}
 
@@ -196,10 +212,8 @@
 \end{algorithmic}
 \begin{itemize}
   \item $\theta_i$: $i$th $p$-dimensional vector (randomly initialized)
-  \item $N_c$: number of chemotaxis steps
   \item $S$: number of bacteria in the colony
-  \item $\phi \sim \mathcal{U}$: a random unit vector
-  \item $c$: a step-size for bacterium $i$
+  \item $c_i$: a step-size for bacterium $i$
 \end{itemize}
 \end{frame}
 
@@ -223,19 +237,82 @@ J_{cc}(\theta) = \sum_{i=1}^S &-d_\text{attract} \exp \left( -w_\text{attract} (
 \end{center}
 \end{frame}
 
-% \begin{frame}
-% \frametitle{Results of Colony}
-% \begin{columns}
-% \column{0.5\textwidth}
-% \begin{center}
-% \includegraphics[scale=0.3]{assets/sphere_colony_J}
-% \includegraphics[scale=0.3]{assets/sphere_colony_theta}
-% \end{center}
-% \column{0.5\textwidth}
-% \includegraphics[scale=0.3]{assets/rastrigin_colony_J}
-% \includegraphics[scale=0.3]{assets/rastrigin_colony_theta}
-% \end{columns}
-% \end{frame}
+\begin{frame}
+\frametitle{Results of Single Bacterium}
+\begin{columns}
+  \column{0.5\textwidth}
+    \begin{center}
+      \includegraphics[scale=0.3]{assets/sphere_colony_J}
+      \includegraphics[scale=0.3]{assets/sphere_colony_theta}
+    \end{center}
+  \column{0.5\textwidth}
+    \begin{itemize}
+      \item Still relatively consistent performance for a convex function.
+      \item Achieves similar performance to single bacterium.
+    \end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Results of Single Bacterium}
+\begin{columns}
+  \column{0.5\textwidth}
+    \begin{center}
+      \includegraphics[scale=0.3]{assets/rastrigin_colony_J}
+      \includegraphics[scale=0.3]{assets/rastrigin_colony_theta}
+    \end{center}
+  \column{0.5\textwidth}
+    \begin{itemize}
+      \item Still relatively inconsistent performance for a highly nonconvex function.
+      \item But wait... What if the problem is just the hyperparameters?
+    \end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Results of Single Bacterium}
+\begin{columns}
+  \column{0.5\textwidth}
+    \begin{center}
+      \includegraphics[scale=0.3]{assets/rastrigin_colony_tuned_J}
+      \includegraphics[scale=0.3]{assets/rastrigin_colony_tuned_theta}
+    \end{center}
+  \column{0.5\textwidth}
+    \begin{itemize}
+      \item By trying out different combinations of hyperparameters we can improve overall performance.
+      \item Here we increased the depth and width of attraction as well as the depth and width of repellance to increase "global" behaviour.
+    \end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Algorithm for a Reproducing Colony}
+\begin{algorithmic}[1]
+\For {$k \gets 1 \dots N_{re}$}:
+  \For {$j \gets 1 \dots N_c $}:
+    \For {$i \gets 1 \dots S$}:
+      \State $\phi \sim \mathcal{U}$
+      \State $\theta_i \gets \theta_i + c_i \phi$
+      \While {$J(\theta_i + c_i \phi) + J_{cc}(\theta_i + c_i \phi) < J(\theta_i) + J_{cc}(\theta_i)$}:
+        \State $\theta_i \gets \theta_i + c_i \phi$
+      \EndWhile
+    \EndFor
+  \EndFor
+  \State delete worst $S/2$ and reproduce best $S/2$
+\EndFor
+\end{algorithmic}
+\begin{itemize}
+  \item $N_{re}$: number of reproduction steps
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Algorithm for a Reproducing Colony}
+
+\end{frame}
+
+
+
 
 % cons
 % no attempts to compare to actual biological
