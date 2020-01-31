@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  30 JAN 2020 12:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  31 JAN 2020 09:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1245,7 +1245,7 @@ Overfull \hbox (45.61278pt too wide) has occurred while \output is active
 [23
 
 ]
-<assets/swarming.pdf, id=858, 462.52798pt x 346.89601pt>
+<assets/swarming.pdf, id=927, 462.52798pt x 346.89601pt>
 File: assets/swarming.pdf Graphic file (type pdf)
 <use assets/swarming.pdf>
 Package pdftex.def Info: assets/swarming.pdf  used on input line 225.
@@ -1272,19 +1272,19 @@ Overfull \hbox (45.61278pt too wide) has occurred while \output is active
 \tf@snm=\write8
 \openout8 = `presentation.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 234.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 234.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 249.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 249.
  (./presentation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 234.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 234.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 249.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 249.
 Package rerunfilecheck Info: File `presentation.out' has not changed.
 (rerunfilecheck)             Checksum: 8E7B9F9516C82581ABBC3B6CD8C41C64;163.
  ) 
 Here is how much of TeX's memory you used:
- 18113 strings out of 492616
- 345737 string characters out of 6129482
+ 18117 strings out of 492616
+ 345892 string characters out of 6129482
  422453 words of memory out of 5000000
- 21549 multiletter control sequences out of 15000+600000
+ 21553 multiletter control sequences out of 15000+600000
  13726 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,15n,63p,779b,595s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1300,15 +1300,14 @@ l/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/t
 exlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texl
 ive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive
 /2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/
-2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/20
-19/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/201
-9/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2019
-/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/local/texlive/2
-019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on presentation.pdf (24 pages, 2075850 bytes).
+2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2
+019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/20
+19/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/local/texlive
+/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on presentation.pdf (24 pages, 2048014 bytes).
 PDF statistics:
- 966 PDF objects out of 1000 (max. 8388607)
- 787 compressed objects within 8 object streams
+ 1057 PDF objects out of 1200 (max. 8388607)
+ 804 compressed objects within 9 object streams
  52 named destinations out of 1000 (max. 500000)
  475 words of extra memory for PDF output out of 10000 (max. 10000000)
 

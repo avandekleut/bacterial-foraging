@@ -9,7 +9,6 @@
 \usetheme{Boadilla}
 \usecolortheme{seahorse}
 
-
 \title{Biomimicry of Bacterial Foraging}
 \subtitle{for Distributed Optimization and Control}
 \author{
@@ -213,7 +212,7 @@
   \item Use gaussian distribution to model this
 \end{itemize}
 \begin{align*}
-J_{cc}(\theta) = \sum_{i=1}^S &-d^+ \exp \left( -w^+ (\theta - \theta_i)^T (\theta - \theta_i) \right) \\ &+ d^- \exp \left( -w^- (\theta - \theta_i)^T (\theta - \theta_i) \right)
+J_{cc}(\theta) = \sum_{i=1}^S &-d_\text{attract} \exp \left( -w_\text{attract} (\theta - \theta_i)^T (\theta - \theta_i) \right) \\ &+ h_\text{repellant} \exp \left( -w_\text{repellant} (\theta - \theta_i)^T (\theta - \theta_i) \right)
 \end{align*}
 \end{frame}
 
@@ -224,8 +223,23 @@ J_{cc}(\theta) = \sum_{i=1}^S &-d^+ \exp \left( -w^+ (\theta - \theta_i)^T (\the
 \end{center}
 \end{frame}
 
+% \begin{frame}
+% \frametitle{Results of Colony}
+% \begin{columns}
+% \column{0.5\textwidth}
+% \begin{center}
+% \includegraphics[scale=0.3]{assets/sphere_colony_J}
+% \includegraphics[scale=0.3]{assets/sphere_colony_theta}
+% \end{center}
+% \column{0.5\textwidth}
+% \includegraphics[scale=0.3]{assets/rastrigin_colony_J}
+% \includegraphics[scale=0.3]{assets/rastrigin_colony_theta}
+% \end{columns}
+% \end{frame}
+
 % cons
 % no attempts to compare to actual biological
+% does not compare to exissting methods. do you want to be a good optimization algorithm or a good biological model? its neither
 % spends long time in introduction describing things like search strategies (cruise, ambush, saltatory), but only ends up using one
 % discusses how foraging and looking for nutrients depends on the concentration of nutrients and how the nutrients can be used up, but then ignores this information when desigining the simulation
 % do you want a gradient-free hill-climbing algorithm or a simulation of e coli behaviour?
