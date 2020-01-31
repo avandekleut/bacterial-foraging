@@ -1,7 +1,7 @@
 import numpy as np
-np.random.seed(17)
 
-def simulate(J, S=10, p=2, c=0.1, N_re=5, N_c=100, rng=(-10,10), d_attract=0.1, w_attract=0.2, h_repellant=0.1, w_repellant=10):
+def simulate(J, S=10, p=2, c=0.1, N_re=4, N_c=100, rng=(-10,10), d_attract=0.1, w_attract=0.2, h_repellant=0.1, w_repellant=10):
+
     theta = rng[0] + np.random.rand(S, p)*(rng[1] - rng[0])
 
     def J_cc(x):
@@ -25,5 +25,8 @@ def simulate(J, S=10, p=2, c=0.1, N_re=5, N_c=100, rng=(-10,10), d_attract=0.1, 
 
                 while J(theta[i] + c*phi) + J_cc(theta[i] + c*phi) < J(theta[i]) + J_cc(theta[i]):
                     theta[i] = theta[i] + c*phi
+
+        I = np.argsort(J_histories[k].sum(axis=1)) # sort
+        theta = np.concatenate((theta[I[:S//2]].copy(), theta[I[:S//2]].copy()))
 
     return J_histories, theta_histories

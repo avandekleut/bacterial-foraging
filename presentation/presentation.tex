@@ -3,7 +3,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsfonts}
 \usepackage{amsmath}
-\usepackage{multicol}
+\usepackage{xcolor}
 \usepackage[noend]{algpseudocode}
 \usefonttheme{serif}
 \usetheme{Boadilla}
@@ -140,7 +140,7 @@
 \frametitle{Algorithm for a Single Bacterium}
 \begin{algorithmic}[1]
 \For {$j \gets 1 \dots N_c $}:
-  \State $\phi \sim \mathcal{U}$
+  \State $\phi \sim S^p$
   \State $\theta \gets \theta + c \phi$
   \While {$J(\theta + c \phi) < J(\theta)$}:
     \State $\theta \gets \theta + c \phi$
@@ -150,7 +150,7 @@
 \begin{itemize}
   \item $\theta$: $p$-dimensional vector (randomly initialized)
   \item $N_c$: number of chemotaxis steps
-  \item $\phi \sim \mathcal{U}$: a random unit vector
+  \item $\phi \sim S^p$: a random $p$-dimensional unit vector
   \item $c$: a step-size
 \end{itemize}
 \end{frame}
@@ -158,41 +158,10 @@
 \begin{frame}
 \frametitle{Loss Function to Optimize}
 \begin{center}
-% \begin{figure}
-%   \includegraphics[scale=0.5]{assets/rastrigin}
-%   \caption{$J(\theta) = An + \sum_{i=1}^n \left( x_i^2 - A \cos(2 \pi x_i) \right)$}
-% \end{figure}
 \includegraphics[scale=0.5]{assets/rastrigin}
 $$J(\theta) = An + \sum_{i=1}^n \left( x_i^2 - A \cos(2 \pi x_i) \right)$$
 \end{center}
 \end{frame}
-
-% \begin{frame}
-% \frametitle{Loss Function to Optimize}
-% \begin{columns}
-% \column{0.5\textwidth}
-% \begin{center}
-% \includegraphics[scale=0.3]{assets/sphere}
-% \end{center}
-% \column{0.5\textwidth}
-% \includegraphics[scale=0.3]{assets/rastrigin}
-% \end{columns}
-% \end{frame}
-
-% \begin{frame}
-% \frametitle{Results of Single Bacterium}
-% \begin{columns}
-%   \column{0.5\textwidth}
-%     \begin{center}
-%       \includegraphics[scale=0.3]{assets/sphere_J}
-%       \includegraphics[scale=0.3]{assets/sphere_theta}
-%     \end{center}
-%   \column{0.5\textwidth}
-%     \begin{itemize}
-%       \item Relatively consistent performance for a convex function.
-%     \end{itemize}
-% \end{columns}
-% \end{frame}
 
 \begin{frame}
 \frametitle{Results of Single Bacterium}
@@ -212,12 +181,12 @@ $$J(\theta) = An + \sum_{i=1}^n \left( x_i^2 - A \cos(2 \pi x_i) \right)$$
 \begin{frame}
 \frametitle{Algorithm for a Colony}
 \begin{algorithmic}[1]
-\For {$j \gets 1 \dots N_c $}:
+\For {\textcolor{gray}{$j \gets 1 \dots N_c $}}:
   \For {$i \gets 1 \dots S$}:
-    \State $\phi \sim \mathcal{U}$
-    \State $\theta_i \gets \theta_i + c_i \phi$
-    \While {$J(\theta_i + c_i \phi) + J_{cc}(\theta_i + c_i \phi) < J(\theta_i) + J_{cc}(\theta_i)$}:
-      \State $\theta_i \gets \theta_i + c_i \phi$
+    \State \textcolor{gray}{$\phi \sim S^p$}
+    \State \textcolor{gray}{$\theta_i \gets \theta_i + c_i \phi$}
+    \While {\textcolor{gray}{$J(\theta_i + c_i \phi)$} $+ J_{cc}(\theta_i + c_i \phi)$ \textcolor{gray}{$< J(\theta_i) $} $+ J_{cc}(\theta_i)$}:
+      \State \textcolor{gray}{$\theta_i \gets \theta_i + c_i \phi$}
     \EndWhile
   \EndFor
 \EndFor
@@ -226,6 +195,7 @@ $$J(\theta) = An + \sum_{i=1}^n \left( x_i^2 - A \cos(2 \pi x_i) \right)$$
   \item $\theta_i$: $i$th $p$-dimensional vector (randomly initialized)
   \item $S$: number of bacteria in the colony
   \item $c_i$: a step-size for bacterium $i$
+  \item $J_cc$: cell-to-cell interactions
 \end{itemize}
 \end{frame}
 
@@ -233,8 +203,9 @@ $$J(\theta) = An + \sum_{i=1}^n \left( x_i^2 - A \cos(2 \pi x_i) \right)$$
 \frametitle{$J_{cc}$ and swarming behaviour}
 \begin{itemize}
   \item \textit{\textit{E. coli}} do social foraging
-  \item Secrete a substance to indicate to attract nearby \textit{\textit{E. coli}} and encourage swarming
+  \item Secrete a substance to indicate to attract nearby \textit{\textit{E. coli}} and encourage swarming and biofilm formation
   \item Strength of signal diffuses over space
+  \item Also want to avoid crowding
   \item Use sum of two Gaussian functions to model this
 \end{itemize}
 \begin{align*}
@@ -248,22 +219,6 @@ J_{cc}(\theta) = \sum_{i=1}^S &-d_\text{attract} \exp \left( -w_\text{attract} (
 \includegraphics[scale=0.5]{assets/swarming}
 \end{center}
 \end{frame}
-
-% \begin{frame}
-% \frametitle{Results of Colony with Swarming}
-% \begin{columns}
-%   \column{0.5\textwidth}
-%     \begin{center}
-%       \includegraphics[scale=0.3]{assets/sphere_colony_J}
-%       \includegraphics[scale=0.3]{assets/sphere_colony_theta}
-%     \end{center}
-%   \column{0.5\textwidth}
-%     \begin{itemize}
-%       \item Still relatively consistent performance for a convex function.
-%       \item Achieves similar performance to single bacterium.
-%     \end{itemize}
-% \end{columns}
-% \end{frame}
 
 \begin{frame}
 \frametitle{Results of Colony with Swarming}
@@ -316,15 +271,32 @@ J_{cc}(\theta) = \sum_{i=1}^S &-d_\text{attract} \exp \left( -w_\text{attract} (
 \end{frame}
 
 \begin{frame}
+\frametitle{\textit{E. coli} reproduction}
+\begin{itemize}
+  \item<1-> \textit{E. coli} ``reproduce'' via
+  \begin{enumerate}
+    \item<1-> \textbf{Binary fission}: essentially creating a clone
+    \item<1-> \textbf{Horizontal Translation}: merging genetic material with others
+  \end{enumerate}
+  \item<2-> Algorithm designed to mimic binary fission
+  \begin{itemize}
+    \item<2-> More fit individuals more likely to survive
+    \item<2-> Less fit individuals more likely to die
+  \end{itemize}
+  \item<3-> Horizontal translation \text{could} be incorporated (like a genetic algorithm)
+\end{itemize}
+\end{frame}
+
+\begin{frame}
 \frametitle{Algorithm for a Reproducing Colony}
 \begin{algorithmic}[1]
 \For {$k \gets 1 \dots N_{re}$}:
-  \For {$j \gets 1 \dots N_c $}:
-    \For {$i \gets 1 \dots S$}:
-      \State $\phi \sim \mathcal{U}$
-      \State $\theta_i \gets \theta_i + c_i \phi$
-      \While {$J(\theta_i + c_i \phi) + J_{cc}(\theta_i + c_i \phi) < J(\theta_i) + J_{cc}(\theta_i)$}:
-        \State $\theta_i \gets \theta_i + c_i \phi$
+  \For {\textcolor{gray}{$j \gets 1 \dots N_c $}}:
+    \For {\textcolor{gray}{$i \gets 1 \dots S$}}:
+      \State \textcolor{gray}{$\phi \sim S^p$}
+      \State \textcolor{gray}{$\theta_i \gets \theta_i + c_i \phi$}
+      \While {\textcolor{gray}{$J(\theta_i + c_i \phi) + J_{cc}(\theta_i + c_i \phi) < J(\theta_i) + J_{cc}(\theta_i)$}}:
+        \State \textcolor{gray}{$\theta_i \gets \theta_i + c_i \phi$}
       \EndWhile
     \EndFor
   \EndFor
@@ -336,18 +308,6 @@ J_{cc}(\theta) = \sum_{i=1}^S &-d_\text{attract} \exp \left( -w_\text{attract} (
 \end{itemize}
 \end{frame}
 
-% \begin{frame}
-% \frametitle{Results of Reproducing Colony}
-% \begin{columns}
-%   \column{0.5\textwidth}
-%     \begin{center}
-%       \includegraphics[scale=0.3]{assets/sphere_colony_re_J}
-%       \includegraphics[scale=0.3]{assets/sphere_colony_re_theta}
-%     \end{center}
-%   \column{0.5\textwidth}
-% \end{columns}
-% \end{frame}
-
 \begin{frame}
 \frametitle{Results of Reproducing Colony}
 \begin{columns}
@@ -357,7 +317,85 @@ J_{cc}(\theta) = \sum_{i=1}^S &-d_\text{attract} \exp \left( -w_\text{attract} (
       \includegraphics[scale=0.3]{assets/rastrigin_colony_re_theta}
     \end{center}
   \column{0.5\textwidth}
+  \begin{itemize}
+    \item<1-> Individuals with higher values of $J$ killed off
+    \item<2-> Individuals with lower values of $J$ duplicated
+    \begin{itemize}
+      \item<2-> Ideally move away due to repellance
+    \end{itemize}
+    \item<3-> Idea is to encourage searching in space nearby ``best'' individuals
+    \item<4-> If repellance isn't high enough then repeated iterations of evolution can concentrate colony in local minimum
+  \end{itemize}
 \end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Does Reproduction Help?}
+\begin{columns}
+  \column{0.5\textwidth}
+    \begin{center}
+      \includegraphics[scale=0.3]{assets/rastrigin_colony_re_J}
+      \includegraphics[scale=0.3]{assets/rastrigin_colony_re_theta}
+    \end{center}
+  \column{0.5\textwidth}
+  \begin{center}
+    \includegraphics[scale=0.3]{assets/rastrigin_colony_400_J}
+    \includegraphics[scale=0.3]{assets/rastrigin_colony_400_theta}
+  \end{center}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Elimination-Dispersal Events}
+\begin{columns}
+\column{0.5\textwidth}
+\begin{center}
+\includegraphics[scale=0.25]{assets/transmission.jpg}
+\end{center}
+\column{0.5\textwidth}
+\begin{itemize}
+  \item<1-> Over time, random events disperse populations of \textit{E. coli}
+  \begin{itemize}
+    \item<1-> Water, animal activity, human intervention
+  \end{itemize}
+  \item<2-> May destroy chemotactic progress
+  \begin{itemize}
+    \item<2-> But may also bring \textit{E. coli} to good food sources
+  \end{itemize}
+  \item<3-> For optimization, this is a method to prevent stagnation and move out from local minima
+\end{itemize}
+\end{columns}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Algorithm for a Dispersing Colony}
+\begin{algorithmic}[1]
+\For {$l \gets 1 \dots N_{ed}$}:
+  \For {\textcolor{gray}{$k \gets 1 \dots N_{re}$}}:
+    \For {\textcolor{gray}{$j \gets 1 \dots N_c $}}:
+      \For {\textcolor{gray}{$i \gets 1 \dots S$}}:
+        \State \textcolor{gray}{$\phi \sim S^p$}
+        \State \textcolor{gray}{$\theta_i \gets \theta_i + c_i \phi$}
+        \While {\textcolor{gray}{$J(\theta_i + c_i \phi) + J_{cc}(\theta_i + c_i \phi) < J(\theta_i) + J_{cc}(\theta_i)$}}:
+          \State \textcolor{gray}{$\theta_i \gets \theta_i + c_i \phi$}
+        \EndWhile
+      \EndFor
+    \EndFor
+    \State \textcolor{gray}{delete worst $S/2$ and reproduce best $S/2$}
+  \EndFor
+  \For {$i \gets 1 \dots S$}:
+    \If {$\epsilon \sim \mathcal{U}(0, 1) < p_{ed}$}:
+      \State $\theta_i \sim d(\theta)$
+    \EndIf
+  \EndFor
+\EndFor
+\end{algorithmic}
+\begin{itemize}
+  \item $N_{ed}$: number of elimination-dispersal events
+  \item $p_{ed}$: probabilty of a single elimination-dispersal event
+  \item $d(\theta)$: initial distribution of $\theta$
+\end{itemize}
 \end{frame}
 
 

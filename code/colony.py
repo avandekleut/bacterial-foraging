@@ -1,7 +1,7 @@
 import numpy as np
-np.random.seed(17)
 
 def simulate(J, S=10, p=2, c=0.1, N_c=100, rng=(-10,10), d_attract=0.1, w_attract=0.2, h_repellant=0.1, w_repellant=10):
+
     theta = rng[0] + np.random.rand(S, p)*(rng[1] - rng[0])
 
     def J_cc(x):

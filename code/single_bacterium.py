@@ -1,7 +1,7 @@
 import numpy as np
-np.random.seed(17)
 
 def simulate(J, p=2, c=0.1, N_c=100, rng=(-10,10)):
+
     theta = rng[0] + np.random.rand(p)*(rng[1] - rng[0])
 
     J_history = np.zeros((N_c,))
