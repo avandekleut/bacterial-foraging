@@ -11,11 +11,11 @@
 
 \title[Foraging]{Biomimicry of Bacterial Foraging}
 \subtitle{for Distributed Optimization and Control}
-\author[Passino, by Van de Kleut]{
+\author[Passino; Van de Kleut]{
   Kevin M. Passino\inst{1}\\
   Presented by: Alexander Van de Kleut\inst{2}
 }
-\institute{\inst{1}
+\institute[OST; UW]{\inst{1}
   The Ohio State University\\
   Electrical and Computer Engineering
   \and
@@ -93,14 +93,14 @@
 \begin{itemize}
   \item<1-> Model organism
   \begin{itemize}
-    \item<2-> Highly studied
-    \item<3-> Well-characterized foraging behaviour
-    \item<4-> Probably won't feel bad about simplifying its behaviour
+    \item<1-> Highly studied
+    \item<1-> Well-characterized foraging behaviour
+    \item<1-> Probably won't feel bad about simplifying its behaviour
   \end{itemize}
-  \item<5-> Social organism
+  \item<2-> Social organism
   \begin{itemize}
-    \item<6-> Secretes signals to attract others nearby
-    \item<7-> Encourages ``swarming'' or ``clumping''
+    \item<2-> Secretes signals to attract others nearby
+    \item<2-> Encourages ``swarming'' or ``clumping''
   \end{itemize}
 \end{itemize}
 \end{frame}
@@ -157,30 +157,42 @@
 
 \begin{frame}
 \frametitle{Loss Function to Optimize}
-\begin{columns}
-\column{0.5\textwidth}
 \begin{center}
-\includegraphics[scale=0.3]{assets/sphere}
+% \begin{figure}
+%   \includegraphics[scale=0.5]{assets/rastrigin}
+%   \caption{$J(\theta) = An + \sum_{i=1}^n \left( x_i^2 - A \cos(2 \pi x_i) \right)$}
+% \end{figure}
+\includegraphics[scale=0.5]{assets/rastrigin}
+$$J(\theta) = An + \sum_{i=1}^n \left( x_i^2 - A \cos(2 \pi x_i) \right)$$
 \end{center}
-\column{0.5\textwidth}
-\includegraphics[scale=0.3]{assets/rastrigin}
-\end{columns}
 \end{frame}
 
-\begin{frame}
-\frametitle{Results of Single Bacterium}
-\begin{columns}
-  \column{0.5\textwidth}
-    \begin{center}
-      \includegraphics[scale=0.3]{assets/sphere_J}
-      \includegraphics[scale=0.3]{assets/sphere_theta}
-    \end{center}
-  \column{0.5\textwidth}
-    \begin{itemize}
-      \item Relatively consistent performance for a convex function.
-    \end{itemize}
-\end{columns}
-\end{frame}
+% \begin{frame}
+% \frametitle{Loss Function to Optimize}
+% \begin{columns}
+% \column{0.5\textwidth}
+% \begin{center}
+% \includegraphics[scale=0.3]{assets/sphere}
+% \end{center}
+% \column{0.5\textwidth}
+% \includegraphics[scale=0.3]{assets/rastrigin}
+% \end{columns}
+% \end{frame}
+
+% \begin{frame}
+% \frametitle{Results of Single Bacterium}
+% \begin{columns}
+%   \column{0.5\textwidth}
+%     \begin{center}
+%       \includegraphics[scale=0.3]{assets/sphere_J}
+%       \includegraphics[scale=0.3]{assets/sphere_theta}
+%     \end{center}
+%   \column{0.5\textwidth}
+%     \begin{itemize}
+%       \item Relatively consistent performance for a convex function.
+%     \end{itemize}
+% \end{columns}
+% \end{frame}
 
 \begin{frame}
 \frametitle{Results of Single Bacterium}
@@ -223,7 +235,7 @@
   \item \textit{\textit{E. coli}} do social foraging
   \item Secrete a substance to indicate to attract nearby \textit{\textit{E. coli}} and encourage swarming
   \item Strength of signal diffuses over space
-  \item Use gaussian distribution to model this
+  \item Use sum of two Gaussian functions to model this
 \end{itemize}
 \begin{align*}
 J_{cc}(\theta) = \sum_{i=1}^S &-d_\text{attract} \exp \left( -w_\text{attract} (\theta - \theta_i)^T (\theta - \theta_i) \right) \\ &+ h_\text{repellant} \exp \left( -w_\text{repellant} (\theta - \theta_i)^T (\theta - \theta_i) \right)
@@ -237,24 +249,24 @@ J_{cc}(\theta) = \sum_{i=1}^S &-d_\text{attract} \exp \left( -w_\text{attract} (
 \end{center}
 \end{frame}
 
-\begin{frame}
-\frametitle{Results of Single Bacterium}
-\begin{columns}
-  \column{0.5\textwidth}
-    \begin{center}
-      \includegraphics[scale=0.3]{assets/sphere_colony_J}
-      \includegraphics[scale=0.3]{assets/sphere_colony_theta}
-    \end{center}
-  \column{0.5\textwidth}
-    \begin{itemize}
-      \item Still relatively consistent performance for a convex function.
-      \item Achieves similar performance to single bacterium.
-    \end{itemize}
-\end{columns}
-\end{frame}
+% \begin{frame}
+% \frametitle{Results of Colony with Swarming}
+% \begin{columns}
+%   \column{0.5\textwidth}
+%     \begin{center}
+%       \includegraphics[scale=0.3]{assets/sphere_colony_J}
+%       \includegraphics[scale=0.3]{assets/sphere_colony_theta}
+%     \end{center}
+%   \column{0.5\textwidth}
+%     \begin{itemize}
+%       \item Still relatively consistent performance for a convex function.
+%       \item Achieves similar performance to single bacterium.
+%     \end{itemize}
+% \end{columns}
+% \end{frame}
 
 \begin{frame}
-\frametitle{Results of Single Bacterium}
+\frametitle{Results of Colony with Swarming}
 \begin{columns}
   \column{0.5\textwidth}
     \begin{center}
@@ -270,7 +282,7 @@ J_{cc}(\theta) = \sum_{i=1}^S &-d_\text{attract} \exp \left( -w_\text{attract} (
 \end{frame}
 
 \begin{frame}
-\frametitle{Results of Single Bacterium}
+\frametitle{Results of Colony with Swarming}
 \begin{columns}
   \column{0.5\textwidth}
     \begin{center}
@@ -279,9 +291,27 @@ J_{cc}(\theta) = \sum_{i=1}^S &-d_\text{attract} \exp \left( -w_\text{attract} (
     \end{center}
   \column{0.5\textwidth}
     \begin{itemize}
-      \item By trying out different combinations of hyperparameters we can improve overall performance.
-      \item Here we increased the depth and width of attraction as well as the depth and width of repellance to increase "global" behaviour.
+      \item<1-> By trying out different combinations of hyperparameters we can improve overall performance.
+      \item<1-> Here we increased the depth and width of attraction as well as the depth and width of repellance to increase "global" behaviour.
+      \item<2-> Important to know scale of $J$ relative to scale of $J_{cc}$ for tradeoff.
+      \begin{itemize}
+        \item<2-> Can think of this like hyperparameters for PSO
+      \end{itemize}
     \end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Comparing $J_{cc}$}
+\begin{columns}
+  \column{0.5\textwidth}
+  \begin{center}
+    \includegraphics[scale=0.4]{assets/swarming}
+  \end{center}
+  \column{0.5\textwidth}
+  \begin{center}
+    \includegraphics[scale=0.4]{assets/swarming_tuned}
+  \end{center}
 \end{columns}
 \end{frame}
 
@@ -306,9 +336,28 @@ J_{cc}(\theta) = \sum_{i=1}^S &-d_\text{attract} \exp \left( -w_\text{attract} (
 \end{itemize}
 \end{frame}
 
-\begin{frame}
-\frametitle{Algorithm for a Reproducing Colony}
+% \begin{frame}
+% \frametitle{Results of Reproducing Colony}
+% \begin{columns}
+%   \column{0.5\textwidth}
+%     \begin{center}
+%       \includegraphics[scale=0.3]{assets/sphere_colony_re_J}
+%       \includegraphics[scale=0.3]{assets/sphere_colony_re_theta}
+%     \end{center}
+%   \column{0.5\textwidth}
+% \end{columns}
+% \end{frame}
 
+\begin{frame}
+\frametitle{Results of Reproducing Colony}
+\begin{columns}
+  \column{0.5\textwidth}
+    \begin{center}
+      \includegraphics[scale=0.3]{assets/rastrigin_colony_re_J}
+      \includegraphics[scale=0.3]{assets/rastrigin_colony_re_theta}
+    \end{center}
+  \column{0.5\textwidth}
+\end{columns}
 \end{frame}
 
 
