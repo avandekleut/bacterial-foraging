@@ -414,6 +414,35 @@ J_{cc}(\theta) = \sum_{i=1}^S &-d_\text{attract} \exp \left( -w_\text{attract} (
 \end{columns}
 \end{frame}
 
+\begin{frame}
+\frametitle{Caveats}
+\begin{itemize}
+  \item<1-> This is only a single application:
+  \begin{itemize}
+    \item<1-> A single highly nonconvex function
+    \item<1-> Should try out other loss functions and applications (see post-presentation slides)
+  \end{itemize}
+  \item<2-> Chose a single seed arbitrarily to run experiments:
+  \begin{itemize}
+    \item<2-> Results could vary if a different seed was chosen
+  \end{itemize}
+  \item<3-> Hyperparameters were chosen by trying a few random combinations
+  \begin{itemize}
+    \item<3-> Tried to avoid ``overfitting'' hyperparameters (abuse of terminology)
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Is this a good optimization algorithm?}
+\begin{itemize}
+  \item Final algorithm checks at least
+  $$
+  N_{ed} \times N_{re} \times N_c \times S
+  $$
+\end{itemize}
+
+\end{frame}
 
 % cons
 % no attempts to compare to actual biological

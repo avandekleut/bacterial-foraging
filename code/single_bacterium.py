@@ -1,6 +1,6 @@
 import numpy as np
 
-def simulate(J, p=2, c=0.1, N_c=100, rng=(-10,10)):
+def simulate(J, p=2, c=0.1, N_c=100, rng=(-5.12,5.12)):
 
     theta = rng[0] + np.random.rand(p)*(rng[1] - rng[0])
 
