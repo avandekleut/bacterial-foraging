@@ -386,7 +386,7 @@ J_{cc}(\theta) = \sum_{i=1}^S &-d_\text{attract} \exp \left( -w_\text{attract} (
   \EndFor
   \For {$i \gets 1 \dots S$}:
     \If {$\epsilon \sim \mathcal{U}(0, 1) < p_{ed}$}:
-      \State $\theta_i \sim d(\theta)$
+      \State $\theta_i \sim d^0(\theta)$
     \EndIf
   \EndFor
 \EndFor
@@ -394,7 +394,7 @@ J_{cc}(\theta) = \sum_{i=1}^S &-d_\text{attract} \exp \left( -w_\text{attract} (
 \begin{itemize}
   \item $N_{ed}$: number of elimination-dispersal events
   \item $p_{ed}$: probabilty of a single elimination-dispersal event
-  \item $d(\theta)$: initial distribution of $\theta$
+  \item $d^0(\theta)$: initial distribution of $\theta$
 \end{itemize}
 \end{frame}
 
@@ -436,20 +436,70 @@ J_{cc}(\theta) = \sum_{i=1}^S &-d_\text{attract} \exp \left( -w_\text{attract} (
 \begin{frame}
 \frametitle{Is this a good optimization algorithm?}
 \begin{itemize}
-  \item Final algorithm checks at least
-  $$
-  N_{ed} \times N_{re} \times N_c \times S
-  $$
+  \item<1-> We don't know. The authors don't compare to any existing methods.
+  \item<2-> The author draws a comparison to genetic algorithms (GAs) since both are hill-climbing algorithms, but asserts that they are really different algorithms \textbf{based on their biological inspiration}.
+  \begin{itemize}
+    \item<2-> Is this really enough to make it a novel algorithm?
+  \end{itemize}
+  \item<3-> The method is also suspiciously similar to partical swarm optimization
+  \begin{itemize}
+    \item<4-> Combines local and global information with stochastic hill-climbing algorithm.
+    \item<4-> The authors never mention this despite the popularity of PSOs (this paper publish 7 years later).
+  \end{itemize}
 \end{itemize}
-
 \end{frame}
 
-% cons
-% no attempts to compare to actual biological
-% does not compare to exissting methods. do you want to be a good optimization algorithm or a good biological model? its neither
-% spends long time in introduction describing things like search strategies (cruise, ambush, saltatory), but only ends up using one
-% discusses how foraging and looking for nutrients depends on the concentration of nutrients and how the nutrients can be used up, but then ignores this information when desigining the simulation
-% do you want a gradient-free hill-climbing algorithm or a simulation of e coli behaviour?
-%
+\begin{frame}
+\frametitle{Is this a good optimization algorithm?}
+\begin{itemize}
+  \item<1-> However, this algorithm is \textbf{gradient-free}.
+  \begin{itemize}
+    \item<2-> We can minimize functions that we may not have access to the gradient for (or it may not exist)
+    \item<2-> For example (from the paper) fitting model parameters for dynamic control problem
+    \item<2-> Or for example fitting the parameters of a neural network to perform a task
+  \end{itemize}
+  \item<3-> It can also explore the search space beyond the initial distribution $d^0(\theta)$ in case we do not know where the optimal value $\theta^*$ lies.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Is this a good model of \textit{E. coli}?}
+\begin{itemize}
+  \item<2-> We don't know. The authors don't compare to any ecological data.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Is this a good model of \textit{E. coli}?}
+Some important limitations from the authors:
+\begin{itemize}
+  \item<1> Ignore characteristics of actual biological processes in favor of simplicity and capturing the essence of chemotactic hill-climbing and swarming.
+  \item<2> Ignore characteristics of the chemical medium and  assume that consumption does not affect the nutrient surface.
+  \item<3> They assume a constant population size, even if there are many nutrients and generations.
+  \item<4> They assume that the cells respond to nutrients in the environment in the same way that they respond to ones released by other cells for the purpose of signaling the desire to swarm.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Is this a good paper?}
+\begin{center}
+\includegraphics[scale=0.3]{assets/yikes}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Is this a good paper?}
+\begin{itemize}
+  \item<1-> A significant portion of the paper is dedicated to discussing biology and foraging. This information is later thrown away during development of the algorithm.
+  \item<2-> It is not clear if the goal is create a simulation of \textit{E. coli} foraging behaviour or to create another biologically-inspired optimization algorithm.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Discussion}
+\end{frame}
+
+
 
 \end{document}
