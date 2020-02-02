@@ -6,7 +6,7 @@ This code optimizes some of the functionality of colony_elimination_dispersal.py
 using vectorized operations. It essentially avoids looping over the colony itself (index i).
 """
 
-def simulate(J, S=10, p=2, c=0.1, N_ed=2, p_ed=0.25, N_re=4, N_c=100, rng=(-5.12,5.12), d_attract=0.1, w_attract=0.2, h_repellant=0.1, w_repellant=10):
+def simulate(J, S=10, p=2, c=0.1, N_ed=2, p_ed=0.25, N_re=4, N_c=100, rng=(-5.12,5.12), d_attract=0.1, w_attract=0.2, h_repellant=0.1, w_repellant=10, verbose=False):
 
     theta = rng[0] + np.random.rand(S, p)*(rng[1] - rng[0])
 
@@ -18,8 +18,14 @@ def simulate(J, S=10, p=2, c=0.1, N_ed=2, p_ed=0.25, N_re=4, N_c=100, rng=(-5.12
     theta_histories = np.zeros((N_ed, N_re, S, N_c, p))
 
     for l in range(N_ed):
+        if(verbose):
+            print(f'{l}/{N_ed}')
         for k in range(N_re):
+            if(verbose):
+                print(f' {k}/{N_re}')
             for j in range(N_c):
+                if(verbose):
+                    print(f'   {j}/{N_c}')
                 phi = np.random.uniform(low=-1, high=1, size=(S,p))
                 phi /= np.linalg.norm(phi)
                 theta = theta + c*phi
@@ -49,28 +55,16 @@ def simulate(J, S=10, p=2, c=0.1, N_ed=2, p_ed=0.25, N_re=4, N_c=100, rng=(-5.12
 
     return J_histories, theta_histories
 
-import itertools
-from losses import rastrigin
+import pso
+import time
+import losses
 
-d_attract=[0.1, 1, 10]
-w_attract=[0.1, 1, 10]
-h_repellant=[0.1, 1, 10]
-w_repellant=[0.1, 1, 10]
+t = time.time()
+J_history, theta_history = pso.simulate(losses.rastrigin)
+print(time.time()-t)
+print(np.min(J_history))
 
-hyperparameters = list(itertools.product(d_attract, w_attract, h_repellant, w_repellant))
-
-i = 1
-best_hyperparameters = hyperparameters[0]
-best_J = np.inf
-for d_attract, w_attract, h_repellant, w_repellant in hyperparameters:
-    np.random.seed(17)
-    print(f'{i}/{len(hyperparameters)}')
-    J_history, _ = simulate(rastrigin, d_attract=d_attract, w_attract=w_attract, h_repellant=h_repellant, w_repellant=w_repellant)
-
-    J_min = np.min(J_history)
-    if J_min < best_J:
-        best_J = J_min
-        best_hyperparameters = (d_attract, w_attract, h_repellant, w_repellant)
-        print('\t',J_min)
-        print('\t',best_hyperparameters)
-    i += 1
+t = time.time()
+J_history, theta_history = simulate(losses.rastrigin)
+print(time.time()-t)
+print(np.min(J_history))
