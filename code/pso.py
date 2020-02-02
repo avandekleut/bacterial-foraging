@@ -40,11 +40,3 @@ def simulate(J, p=2, N=10, iter=100, rng=(-5.12, 5.12), mu=0.4, c_1=0.8, c_2=1.0
         theta_histories[:, t, :] = theta.copy()
 
     return J_histories, theta_histories
-
-from losses import rastrigin
-from plot import plot_J, plot_paths
-
-np.random.seed(17)
-J_histories, theta_histories = simulate(rastrigin, mu=0.4, c_1=0.8, c_2=1.0)
-plot_J(J_histories,  filename=None)
-plot_paths(rastrigin, theta_histories)

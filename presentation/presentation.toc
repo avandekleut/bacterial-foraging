@@ -1,3 +1,4 @@
 \beamer@sectionintoc {1}{About the Author}{3}{0}{1}
 \beamer@sectionintoc {2}{Foraging}{5}{0}{2}
-\beamer@sectionintoc {3}{Biological and Computational Model}{10}{0}{3}
+\beamer@sectionintoc {3}{Building the Algorithm}{10}{0}{3}
+\beamer@sectionintoc {4}{Discussion}{41}{0}{4}

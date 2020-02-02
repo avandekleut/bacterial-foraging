@@ -42,7 +42,7 @@
 \section{About the Author}
 \begin{frame}
 \frametitle{About the Author}
-\begin{columns}
+\begin{columns}[T]
   \column{0.5\textwidth}
     \includegraphics<1-2>[scale=2]{assets/kpassino}%
   \column{0.5\textwidth}
@@ -87,7 +87,7 @@
 \end{itemize}
 \end{frame}
 
-\section{Biological and Computational Model}
+\section{Building the Algorithm}
 \begin{frame}
 \frametitle{\textit{E. coli}}
 \begin{itemize}
@@ -165,7 +165,7 @@ $$J(\theta) = An + \sum_{i=1}^n \left( x_i^2 - A \cos(2 \pi x_i) \right)$$
 
 \begin{frame}
 \frametitle{Results of Single Bacterium}
-\begin{columns}
+\begin{columns}[T]
   \column{0.5\textwidth}
     \begin{center}
       \includegraphics[scale=0.3]{assets/rastrigin_J}
@@ -173,7 +173,7 @@ $$J(\theta) = An + \sum_{i=1}^n \left( x_i^2 - A \cos(2 \pi x_i) \right)$$
     \end{center}
   \column{0.5\textwidth}
     \begin{itemize}
-      \item Relatively inconsistent performance for a highly nonconvex function.
+      \item Relatively inconsistent performance for a highly nonconvex function
     \end{itemize}
 \end{columns}
 \end{frame}
@@ -222,7 +222,7 @@ J_{cc}(\theta) = \sum_{i=1}^S &-d_\text{attract} \exp \left( -w_\text{attract} (
 
 \begin{frame}
 \frametitle{Results of Colony with Swarming}
-\begin{columns}
+\begin{columns}[T]
   \column{0.5\textwidth}
     \begin{center}
       \includegraphics[scale=0.3]{assets/rastrigin_colony_J}
@@ -230,7 +230,7 @@ J_{cc}(\theta) = \sum_{i=1}^S &-d_\text{attract} \exp \left( -w_\text{attract} (
     \end{center}
   \column{0.5\textwidth}
     \begin{itemize}
-      \item Still relatively inconsistent performance for a highly nonconvex function.
+      \item Still relatively inconsistent performance for a highly nonconvex function
       \item But wait... What if the problem is just the hyperparameters?
     \end{itemize}
 \end{columns}
@@ -238,7 +238,7 @@ J_{cc}(\theta) = \sum_{i=1}^S &-d_\text{attract} \exp \left( -w_\text{attract} (
 
 \begin{frame}
 \frametitle{Results of Colony with Swarming}
-\begin{columns}
+\begin{columns}[T]
   \column{0.5\textwidth}
     \begin{center}
       \includegraphics[scale=0.3]{assets/rastrigin_colony_tuned_J}
@@ -246,11 +246,11 @@ J_{cc}(\theta) = \sum_{i=1}^S &-d_\text{attract} \exp \left( -w_\text{attract} (
     \end{center}
   \column{0.5\textwidth}
     \begin{itemize}
-      \item<1-> By trying out different combinations of hyperparameters we can improve overall performance.
-      \item<1-> Here we increased the depth and width of attraction as well as the depth and width of repellance to increase "global" behaviour.
-      \item<2-> Important to know scale of $J$ relative to scale of $J_{cc}$ for tradeoff.
+      \item<1-> By trying out different combinations of hyperparameters we can improve overall performance
+      \item<1-> Here we increased the depth and width of attraction as well as the depth and width of repellance to increase "global" behaviour
+      \item<2-> Important to know scale of $J$ relative to scale of $J_{cc}$ for tradeoff
       \begin{itemize}
-        \item<2-> Can think of this like hyperparameters for PSO
+        \item<2-> Can think of this like hyperparameters $c_1$ and $c_2$ for PSO
       \end{itemize}
     \end{itemize}
 \end{columns}
@@ -258,7 +258,7 @@ J_{cc}(\theta) = \sum_{i=1}^S &-d_\text{attract} \exp \left( -w_\text{attract} (
 
 \begin{frame}
 \frametitle{Comparing $J_{cc}$}
-\begin{columns}
+\begin{columns}[T]
   \column{0.5\textwidth}
   \begin{center}
     \includegraphics[scale=0.4]{assets/swarming}
@@ -310,7 +310,7 @@ J_{cc}(\theta) = \sum_{i=1}^S &-d_\text{attract} \exp \left( -w_\text{attract} (
 
 \begin{frame}
 \frametitle{Results of Reproducing Colony}
-\begin{columns}
+\begin{columns}[T]
   \column{0.5\textwidth}
     \begin{center}
       \includegraphics[scale=0.3]{assets/rastrigin_colony_re_J}
@@ -331,7 +331,7 @@ J_{cc}(\theta) = \sum_{i=1}^S &-d_\text{attract} \exp \left( -w_\text{attract} (
 
 \begin{frame}
 \frametitle{Does Reproduction Help?}
-\begin{columns}
+\begin{columns}[T]
   \column{0.5\textwidth}
     \begin{center}
       \includegraphics[scale=0.3]{assets/rastrigin_colony_re_J}
@@ -347,7 +347,7 @@ J_{cc}(\theta) = \sum_{i=1}^S &-d_\text{attract} \exp \left( -w_\text{attract} (
 
 \begin{frame}
 \frametitle{Elimination-Dispersal Events}
-\begin{columns}
+\begin{columns}[T]
 \column{0.5\textwidth}
 \begin{center}
 \includegraphics[scale=0.25]{assets/transmission.jpg}
@@ -400,7 +400,7 @@ J_{cc}(\theta) = \sum_{i=1}^S &-d_\text{attract} \exp \left( -w_\text{attract} (
 
 \begin{frame}
 \frametitle{Does Elimination-Dispersal Help?}
-\begin{columns}
+\begin{columns}[T]
   \column{0.5\textwidth}
     \begin{center}
       \includegraphics[scale=0.3]{assets/rastrigin_colony_ed_0_J}
@@ -433,18 +433,21 @@ J_{cc}(\theta) = \sum_{i=1}^S &-d_\text{attract} \exp \left( -w_\text{attract} (
 \end{itemize}
 \end{frame}
 
+\section{Discussion}
+
 \begin{frame}
 \frametitle{Is this a good optimization algorithm?}
 \begin{itemize}
   \item<1-> We don't know. The authors don't compare to any existing methods.
-  \item<2-> The author draws a comparison to genetic algorithms (GAs) since both are hill-climbing algorithms, but asserts that they are really different algorithms \textbf{based on their biological inspiration}.
+  \item<2-> The author draws a comparison to genetic algorithms (GAs) since both are hill-climbing algorithms, but asserts that they are really different algorithms \textbf{based on their biological inspiration}
   \begin{itemize}
     \item<2-> Is this really enough to make it a novel algorithm?
   \end{itemize}
   \item<3-> The method is also suspiciously similar to partical swarm optimization
   \begin{itemize}
-    \item<4-> Combines local and global information with stochastic hill-climbing algorithm.
-    \item<4-> The authors never mention this despite the popularity of PSOs (this paper publish 7 years later).
+    \item<4-> Combines local and global information with stochastic hill-climbing algorithm
+    \item<4-> The authors never mention this despite the popularity of PSOs (this paper publish 7 years later)
+    \item<5-> (Ask me about the comparison I did afterwards!)
   \end{itemize}
 \end{itemize}
 \end{frame}
@@ -452,13 +455,13 @@ J_{cc}(\theta) = \sum_{i=1}^S &-d_\text{attract} \exp \left( -w_\text{attract} (
 \begin{frame}
 \frametitle{Is this a good optimization algorithm?}
 \begin{itemize}
-  \item<1-> However, this algorithm is \textbf{gradient-free}.
+  \item<1-> However, this algorithm is \textbf{gradient-free}
   \begin{itemize}
     \item<2-> We can minimize functions that we may not have access to the gradient for (or it may not exist)
     \item<2-> For example (from the paper) fitting model parameters for dynamic control problem
     \item<2-> Or for example fitting the parameters of a neural network to perform a task
   \end{itemize}
-  \item<3-> It can also explore the search space beyond the initial distribution $d^0(\theta)$ in case we do not know where the optimal value $\theta^*$ lies.
+  \item<3-> It can also explore the search space beyond the initial distribution $d^0(\theta)$ in case we do not know where the optimal value $\theta^*$ lies
 \end{itemize}
 \end{frame}
 
@@ -474,10 +477,10 @@ J_{cc}(\theta) = \sum_{i=1}^S &-d_\text{attract} \exp \left( -w_\text{attract} (
 \frametitle{Is this a good model of \textit{E. coli}?}
 Some important limitations from the authors:
 \begin{itemize}
-  \item<1> Ignore characteristics of actual biological processes in favor of simplicity and capturing the essence of chemotactic hill-climbing and swarming.
-  \item<2> Ignore characteristics of the chemical medium and  assume that consumption does not affect the nutrient surface.
-  \item<3> They assume a constant population size, even if there are many nutrients and generations.
-  \item<4> They assume that the cells respond to nutrients in the environment in the same way that they respond to ones released by other cells for the purpose of signaling the desire to swarm.
+  \item<1> Ignore characteristics of actual biological processes in favor of simplicity and capturing the essence of chemotactic hill-climbing and swarming
+  \item<2> Ignore characteristics of the chemical medium and  assume that consumption does not affect the nutrient surface
+  \item<3> They assume a constant population size, even if there are many nutrients and generations
+  \item<4> They assume that the cells respond to nutrients in the environment in the same way that they respond to ones released by other cells for the purpose of signaling the desire to swarm
 \end{itemize}
 \end{frame}
 
@@ -491,8 +494,11 @@ Some important limitations from the authors:
 \begin{frame}
 \frametitle{Is this a good paper?}
 \begin{itemize}
-  \item<1-> A significant portion of the paper is dedicated to discussing biology and foraging. This information is later thrown away during development of the algorithm.
-  \item<2-> It is not clear if the goal is create a simulation of \textit{E. coli} foraging behaviour or to create another biologically-inspired optimization algorithm.
+  \item<1-> A significant portion of the paper is dedicated to discussing biology and foraging
+  \begin{itemize}
+    \item <1-> This information is later thrown away during development of the algorithm
+  \end{itemize}
+  \item<2-> It is not clear if the goal is create a simulation of \textit{E. coli} foraging behaviour or to create another biologically-inspired optimization algorithm
 \end{itemize}
 \end{frame}
 
@@ -500,6 +506,56 @@ Some important limitations from the authors:
 \frametitle{Discussion}
 \end{frame}
 
+\begin{frame}
+\frametitle{Lessons Learned}
+\begin{itemize}
+  \item<1-> As with any stochastic algorithm, \textbf{your random seed matters}
+  \begin{itemize}
+    \item<1-> I often got wildly different results for different initial seeds
+    \item<1-> This might be alleviated by having larger populations, but that comes at a computational cost
+  \end{itemize}
+  \item<2-> As with any algorithm with lots of hyperparameters, tuning hyperparameters can be hard
+  \begin{itemize}
+    \item<2-> For a fixed seed with a grid search you may find good hyperparameters
+    \item<2-> But those hyperparameters may not be robust so seed changes
+  \end{itemize}
+  \item<3-> As with any algorithm, trying a single loss function is not usually sufficient
+  \begin{itemize}
+    \item<3-> I chose rastrigin specifically for its difficulty
+    \item<3-> However, you run the risk of ``overfitting'' your algorithm and hyperparameters to a single problem
+  \end{itemize}
+\end{itemize}
+\end{frame}
 
+\begin{frame}
+\frametitle{Comparison to PSO}
+\begin{itemize}
+  \item Bacterial foraging method:
+  \begin{itemize}
+    \item   At least $N_{ed} \times N_{re} \times S \times N_c$ values of $\theta$ seen
+  \end{itemize}
+  \item PSO: $N \times \text{iter}$ values of $\theta$ seen
+  \begin{itemize}
+    \item PSO strongest with large $N$, so presume $\text{iter} \equiv N_c$
+    \item Then $N = N_{ed} \times N_{re} \times S$
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Comparison to PSO}
+\begin{columns}[T]
+  \column{0.5\textwidth}
+    \begin{center}
+      \includegraphics[scale=0.3]{assets/pso_J}
+      \includegraphics[scale=0.3]{assets/pso_theta}
+    \end{center}
+  \column{0.5\textwidth}
+  \begin{center}
+    \includegraphics[scale=0.3]{assets/rastrigin_colony_ed_1_J}
+    \includegraphics[scale=0.3]{assets/rastrigin_colony_ed_1_theta}
+  \end{center}
+\end{columns}
+\end{frame}
 
 \end{document}

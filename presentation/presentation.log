@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  31 JAN 2020 21:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  1 FEB 2020 20:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -657,17 +657,17 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 {/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./presentation.toc) [2
 
 ]
-<assets/kpassino.jpg, id=102, 72.27pt x 72.27pt>
+<assets/kpassino.jpg, id=110, 72.27pt x 72.27pt>
 File: assets/kpassino.jpg Graphic file (type jpg)
 <use assets/kpassino.jpg>
 Package pdftex.def Info: assets/kpassino.jpg  used on input line 53.
 (pdftex.def)             Requested size: 144.53961pt x 144.53961pt.
-<assets/book1.jpg, id=103, 36.8577pt x 55.8888pt>
+<assets/book1.jpg, id=111, 36.8577pt x 55.8888pt>
 File: assets/book1.jpg Graphic file (type jpg)
 <use assets/book1.jpg>
 Package pdftex.def Info: assets/book1.jpg  used on input line 53.
 (pdftex.def)             Requested size: 73.71518pt x 111.77728pt.
-<assets/book2.jpg, id=104, 405.1938pt x 555.0336pt>
+<assets/book2.jpg, id=112, 405.1938pt x 555.0336pt>
 File: assets/book2.jpg Graphic file (type jpg)
 <use assets/book2.jpg>
 Package pdftex.def Info: assets/book2.jpg  used on input line 53.
@@ -679,7 +679,7 @@ File: assets/kpassino.jpg Graphic file (type jpg)
 <use assets/kpassino.jpg>
 Package pdftex.def Info: assets/kpassino.jpg  used on input line 53.
 (pdftex.def)             Requested size: 144.53961pt x 144.53961pt.
-<assets/citations.jpg, id=131, 489.83pt x 413.545pt>
+<assets/citations.jpg, id=139, 489.83pt x 413.545pt>
 File: assets/citations.jpg Graphic file (type jpg)
 <use assets/citations.jpg>
 Package pdftex.def Info: assets/citations.jpg  used on input line 53.
@@ -701,7 +701,7 @@ Package pdftex.def Info: assets/citations.jpg  used on input line 53.
 ] [11
 
 ]
-<assets/ecoli.png, id=401, 1137.94627pt x 538.9627pt>
+<assets/ecoli.png, id=410, 1137.94627pt x 538.9627pt>
 File: assets/ecoli.png Graphic file (type png)
 <use assets/ecoli.png>
 Package pdftex.def Info: assets/ecoli.png  used on input line 120.
@@ -713,7 +713,7 @@ Package pdftex.def Info: assets/ecoli.png  used on input line 120.
 ] [14
 
 ]
-<assets/rastrigin.png, id=499, 462.528pt x 346.896pt>
+<assets/rastrigin.png, id=508, 462.528pt x 346.896pt>
 File: assets/rastrigin.png Graphic file (type png)
 <use assets/rastrigin.png>
 Package pdftex.def Info: assets/rastrigin.png  used on input line 164.
@@ -721,17 +721,21 @@ Package pdftex.def Info: assets/rastrigin.png  used on input line 164.
  [15
 
  <./assets/rastrigin.png>]
-<assets/rastrigin_J.pdf, id=529, 462.52798pt x 346.89601pt>
+<assets/rastrigin_J.pdf, id=538, 462.52798pt x 346.89601pt>
 File: assets/rastrigin_J.pdf Graphic file (type pdf)
 <use assets/rastrigin_J.pdf>
 Package pdftex.def Info: assets/rastrigin_J.pdf  used on input line 179.
 (pdftex.def)             Requested size: 138.75946pt x 104.0696pt.
-<assets/rastrigin_theta.pdf, id=530, 462.52798pt x 346.89601pt>
+<assets/rastrigin_theta.pdf, id=539, 462.52798pt x 346.89601pt>
 File: assets/rastrigin_theta.pdf Graphic file (type pdf)
 <use assets/rastrigin_theta.pdf>
 Package pdftex.def Info: assets/rastrigin_theta.pdf  used on input line 179.
 (pdftex.def)             Requested size: 138.75946pt x 104.0696pt.
- [16
+
+Overfull \vbox (1.79771pt too high) detected at line 179
+ []
+
+[16
 
  <./assets/rastrigin_J.pdf> <./assets/rastrigin_theta.pdf
 
@@ -741,7 +745,7 @@ pdfTeX warning: pdflatex (file ./assets/rastrigin_theta.pdf): PDF inclusion: mul
 ] [18
 
 ]
-<assets/swarming.png, id=691, 462.528pt x 346.896pt>
+<assets/swarming.png, id=700, 462.528pt x 346.896pt>
 File: assets/swarming.png Graphic file (type png)
 <use assets/swarming.png>
 Package pdftex.def Info: assets/swarming.png  used on input line 221.
@@ -749,33 +753,41 @@ Package pdftex.def Info: assets/swarming.png  used on input line 221.
  [19
 
  <./assets/swarming.png>]
-<assets/rastrigin_colony_J.pdf, id=720, 462.52798pt x 346.89601pt>
+<assets/rastrigin_colony_J.pdf, id=729, 462.52798pt x 346.89601pt>
 File: assets/rastrigin_colony_J.pdf Graphic file (type pdf)
 <use assets/rastrigin_colony_J.pdf>
 Package pdftex.def Info: assets/rastrigin_colony_J.pdf  used on input line 237.
 (pdftex.def)             Requested size: 138.75946pt x 104.0696pt.
-<assets/rastrigin_colony_theta.pdf, id=721, 462.52798pt x 346.89601pt>
+<assets/rastrigin_colony_theta.pdf, id=730, 462.52798pt x 346.89601pt>
 File: assets/rastrigin_colony_theta.pdf Graphic file (type pdf)
 <use assets/rastrigin_colony_theta.pdf>
 Package pdftex.def Info: assets/rastrigin_colony_theta.pdf  used on input line 237.
 (pdftex.def)             Requested size: 138.75946pt x 104.0696pt.
- [20
+
+Overfull \vbox (1.79771pt too high) detected at line 237
+ []
+
+[20
 
  <./assets/rastrigin_colony_J.pdf> <./assets/rastrigin_colony_theta.pdf
 
 pdfTeX warning: pdflatex (file ./assets/rastrigin_colony_theta.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
-<assets/rastrigin_colony_tuned_J.pdf, id=833, 462.52798pt x 346.89601pt>
+<assets/rastrigin_colony_tuned_J.pdf, id=842, 462.52798pt x 346.89601pt>
 File: assets/rastrigin_colony_tuned_J.pdf Graphic file (type pdf)
 <use assets/rastrigin_colony_tuned_J.pdf>
 Package pdftex.def Info: assets/rastrigin_colony_tuned_J.pdf  used on input line 257.
 (pdftex.def)             Requested size: 138.75946pt x 104.0696pt.
-<assets/rastrigin_colony_tuned_theta.pdf, id=834, 462.52798pt x 346.89601pt>
+<assets/rastrigin_colony_tuned_theta.pdf, id=843, 462.52798pt x 346.89601pt>
 File: assets/rastrigin_colony_tuned_theta.pdf Graphic file (type pdf)
 <use assets/rastrigin_colony_tuned_theta.pdf>
 Package pdftex.def Info: assets/rastrigin_colony_tuned_theta.pdf  used on input line 257.
 (pdftex.def)             Requested size: 138.75946pt x 104.0696pt.
- [21
+
+Overfull \vbox (1.79771pt too high) detected at line 257
+ []
+
+[21
 
  <./assets/rastrigin_colony_tuned_J.pdf> <./assets/rastrigin_colony_tuned_theta.pdf
 
@@ -789,7 +801,11 @@ File: assets/rastrigin_colony_tuned_theta.pdf Graphic file (type pdf)
 <use assets/rastrigin_colony_tuned_theta.pdf>
 Package pdftex.def Info: assets/rastrigin_colony_tuned_theta.pdf  used on input line 257.
 (pdftex.def)             Requested size: 138.75946pt x 104.0696pt.
- [22
+
+Overfull \vbox (1.79771pt too high) detected at line 257
+ []
+
+[22
 
 ]
 File: assets/swarming.png Graphic file (type png)
@@ -801,7 +817,7 @@ Overfull \hbox (13.86026pt too wide) in paragraph at lines 271--271
  [] 
  []
 
-<assets/swarming_tuned.png, id=979, 462.528pt x 346.896pt>
+<assets/swarming_tuned.png, id=989, 462.528pt x 346.896pt>
 File: assets/swarming_tuned.png Graphic file (type png)
 <use assets/swarming_tuned.png>
 Package pdftex.def Info: assets/swarming_tuned.png  used on input line 271.
@@ -822,17 +838,21 @@ Overfull \hbox (13.86026pt too wide) in paragraph at lines 271--271
 ] [27
 
 ]
-<assets/rastrigin_colony_re_J.pdf, id=1146, 462.52798pt x 346.89601pt>
+<assets/rastrigin_colony_re_J.pdf, id=1156, 462.52798pt x 346.89601pt>
 File: assets/rastrigin_colony_re_J.pdf Graphic file (type pdf)
 <use assets/rastrigin_colony_re_J.pdf>
 Package pdftex.def Info: assets/rastrigin_colony_re_J.pdf  used on input line 330.
 (pdftex.def)             Requested size: 138.75946pt x 104.0696pt.
-<assets/rastrigin_colony_re_theta.pdf, id=1147, 462.52798pt x 346.89601pt>
+<assets/rastrigin_colony_re_theta.pdf, id=1157, 462.52798pt x 346.89601pt>
 File: assets/rastrigin_colony_re_theta.pdf Graphic file (type pdf)
 <use assets/rastrigin_colony_re_theta.pdf>
 Package pdftex.def Info: assets/rastrigin_colony_re_theta.pdf  used on input line 330.
 (pdftex.def)             Requested size: 138.75946pt x 104.0696pt.
- [28
+
+Overfull \vbox (1.79771pt too high) detected at line 330
+ []
+
+[28
 
  <./assets/rastrigin_colony_re_J.pdf> <./assets/rastrigin_colony_re_theta.pdf
 
@@ -846,7 +866,11 @@ File: assets/rastrigin_colony_re_theta.pdf Graphic file (type pdf)
 <use assets/rastrigin_colony_re_theta.pdf>
 Package pdftex.def Info: assets/rastrigin_colony_re_theta.pdf  used on input line 330.
 (pdftex.def)             Requested size: 138.75946pt x 104.0696pt.
- [29
+
+Overfull \vbox (1.79771pt too high) detected at line 330
+ []
+
+[29
 
 ]
 File: assets/rastrigin_colony_re_J.pdf Graphic file (type pdf)
@@ -857,7 +881,11 @@ File: assets/rastrigin_colony_re_theta.pdf Graphic file (type pdf)
 <use assets/rastrigin_colony_re_theta.pdf>
 Package pdftex.def Info: assets/rastrigin_colony_re_theta.pdf  used on input line 330.
 (pdftex.def)             Requested size: 138.75946pt x 104.0696pt.
- [30
+
+Overfull \vbox (1.79771pt too high) detected at line 330
+ []
+
+[30
 
 ]
 File: assets/rastrigin_colony_re_J.pdf Graphic file (type pdf)
@@ -868,7 +896,11 @@ File: assets/rastrigin_colony_re_theta.pdf Graphic file (type pdf)
 <use assets/rastrigin_colony_re_theta.pdf>
 Package pdftex.def Info: assets/rastrigin_colony_re_theta.pdf  used on input line 330.
 (pdftex.def)             Requested size: 138.75946pt x 104.0696pt.
- [31
+
+Overfull \vbox (1.79771pt too high) detected at line 330
+ []
+
+[31
 
 ]
 File: assets/rastrigin_colony_re_J.pdf Graphic file (type pdf)
@@ -879,23 +911,27 @@ File: assets/rastrigin_colony_re_theta.pdf Graphic file (type pdf)
 <use assets/rastrigin_colony_re_theta.pdf>
 Package pdftex.def Info: assets/rastrigin_colony_re_theta.pdf  used on input line 346.
 (pdftex.def)             Requested size: 138.75946pt x 104.0696pt.
-<assets/rastrigin_colony_400_J.pdf, id=1370, 462.52798pt x 346.89601pt>
+<assets/rastrigin_colony_400_J.pdf, id=1380, 462.52798pt x 346.89601pt>
 File: assets/rastrigin_colony_400_J.pdf Graphic file (type pdf)
 <use assets/rastrigin_colony_400_J.pdf>
 Package pdftex.def Info: assets/rastrigin_colony_400_J.pdf  used on input line 346.
 (pdftex.def)             Requested size: 138.75946pt x 104.0696pt.
-<assets/rastrigin_colony_400_theta.pdf, id=1371, 462.52798pt x 346.89601pt>
+<assets/rastrigin_colony_400_theta.pdf, id=1381, 462.52798pt x 346.89601pt>
 File: assets/rastrigin_colony_400_theta.pdf Graphic file (type pdf)
 <use assets/rastrigin_colony_400_theta.pdf>
 Package pdftex.def Info: assets/rastrigin_colony_400_theta.pdf  used on input line 346.
 (pdftex.def)             Requested size: 138.75946pt x 104.0696pt.
- [32
+
+Overfull \vbox (1.79771pt too high) detected at line 346
+ []
+
+[32
 
  <./assets/rastrigin_colony_400_J.pdf> <./assets/rastrigin_colony_400_theta.pdf
 
 pdfTeX warning: pdflatex (file ./assets/rastrigin_colony_400_theta.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
-<assets/transmission.jpg, id=1477, 613.29124pt x 502.87875pt>
+<assets/transmission.jpg, id=1488, 613.29124pt x 502.87875pt>
 File: assets/transmission.jpg Graphic file (type jpg)
 <use assets/transmission.jpg>
 Package pdftex.def Info: assets/transmission.jpg  used on input line 369.
@@ -919,27 +955,31 @@ Package pdftex.def Info: assets/transmission.jpg  used on input line 369.
 ] [36
 
 ]
-<assets/rastrigin_colony_ed_0_J.pdf, id=1608, 462.52798pt x 346.89601pt>
+<assets/rastrigin_colony_ed_0_J.pdf, id=1618, 462.52798pt x 346.89601pt>
 File: assets/rastrigin_colony_ed_0_J.pdf Graphic file (type pdf)
 <use assets/rastrigin_colony_ed_0_J.pdf>
 Package pdftex.def Info: assets/rastrigin_colony_ed_0_J.pdf  used on input line 415.
 (pdftex.def)             Requested size: 138.75946pt x 104.0696pt.
-<assets/rastrigin_colony_ed_1_J.pdf, id=1609, 462.52798pt x 346.89601pt>
+<assets/rastrigin_colony_ed_1_J.pdf, id=1619, 462.52798pt x 346.89601pt>
 File: assets/rastrigin_colony_ed_1_J.pdf Graphic file (type pdf)
 <use assets/rastrigin_colony_ed_1_J.pdf>
 Package pdftex.def Info: assets/rastrigin_colony_ed_1_J.pdf  used on input line 415.
 (pdftex.def)             Requested size: 138.75946pt x 104.0696pt.
-<assets/rastrigin_colony_ed_2_J.pdf, id=1610, 462.52798pt x 346.89601pt>
+<assets/rastrigin_colony_ed_2_J.pdf, id=1620, 462.52798pt x 346.89601pt>
 File: assets/rastrigin_colony_ed_2_J.pdf Graphic file (type pdf)
 <use assets/rastrigin_colony_ed_2_J.pdf>
 Package pdftex.def Info: assets/rastrigin_colony_ed_2_J.pdf  used on input line 415.
 (pdftex.def)             Requested size: 138.75946pt x 104.0696pt.
-<assets/rastrigin_colony_ed_3_J.pdf, id=1611, 462.52798pt x 346.89601pt>
+<assets/rastrigin_colony_ed_3_J.pdf, id=1621, 462.52798pt x 346.89601pt>
 File: assets/rastrigin_colony_ed_3_J.pdf Graphic file (type pdf)
 <use assets/rastrigin_colony_ed_3_J.pdf>
 Package pdftex.def Info: assets/rastrigin_colony_ed_3_J.pdf  used on input line 415.
 (pdftex.def)             Requested size: 138.75946pt x 104.0696pt.
- [37
+
+Overfull \vbox (1.79771pt too high) detected at line 415
+ []
+
+[37
 
  <./assets/rastrigin_colony_ed_0_J.pdf> <./assets/rastrigin_colony_ed_1_J.pdf
 
@@ -982,21 +1022,63 @@ pdfTeX warning: pdflatex (file ./assets/rastrigin_colony_ed_3_J.pdf): PDF inclus
 
 ] [53
 
+] [54
+
 ]
-<assets/yikes.jpg, id=2339, 1024.82875pt x 224.84pt>
+<assets/yikes.jpg, id=2379, 1024.82875pt x 224.84pt>
 File: assets/yikes.jpg Graphic file (type jpg)
 <use assets/yikes.jpg>
-Package pdftex.def Info: assets/yikes.jpg  used on input line 489.
+Package pdftex.def Info: assets/yikes.jpg  used on input line 492.
 (pdftex.def)             Requested size: 307.45099pt x 67.45251pt.
- [54
+ [55
 
- <./assets/yikes.jpg>] [55
-
-] [56
+ <./assets/yikes.jpg>] [56
 
 ] [57
 
+] [58
+
+] [59
+
+] [60
+
+] [61
+
+] [62
+
 ]
+<assets/pso_J.pdf, id=2621, 462.52798pt x 346.89601pt>
+File: assets/pso_J.pdf Graphic file (type pdf)
+<use assets/pso_J.pdf>
+Package pdftex.def Info: assets/pso_J.pdf  used on input line 559.
+(pdftex.def)             Requested size: 138.75946pt x 104.0696pt.
+<assets/pso_theta.pdf, id=2622, 462.52798pt x 346.89601pt>
+File: assets/pso_theta.pdf Graphic file (type pdf)
+<use assets/pso_theta.pdf>
+Package pdftex.def Info: assets/pso_theta.pdf  used on input line 559.
+(pdftex.def)             Requested size: 138.75946pt x 104.0696pt.
+File: assets/rastrigin_colony_ed_1_J.pdf Graphic file (type pdf)
+<use assets/rastrigin_colony_ed_1_J.pdf>
+Package pdftex.def Info: assets/rastrigin_colony_ed_1_J.pdf  used on input line 559.
+(pdftex.def)             Requested size: 138.75946pt x 104.0696pt.
+<assets/rastrigin_colony_ed_1_theta.pdf, id=2623, 462.52798pt x 346.89601pt>
+File: assets/rastrigin_colony_ed_1_theta.pdf Graphic file (type pdf)
+<use assets/rastrigin_colony_ed_1_theta.pdf>
+Package pdftex.def Info: assets/rastrigin_colony_ed_1_theta.pdf  used on input line 559.
+(pdftex.def)             Requested size: 138.75946pt x 104.0696pt.
+
+Overfull \vbox (1.79771pt too high) detected at line 559
+ []
+
+[63
+
+ <./assets/pso_J.pdf> <./assets/pso_theta.pdf
+
+pdfTeX warning: pdflatex (file ./assets/pso_theta.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <./assets/rastrigin_colony_ed_1_theta.pdf
+
+pdfTeX warning: pdflatex (file ./assets/rastrigin_colony_ed_1_theta.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+>]
 \tf@nav=\write6
 \openout6 = `presentation.nav'.
 
@@ -1006,28 +1088,28 @@ Package pdftex.def Info: assets/yikes.jpg  used on input line 489.
 \tf@snm=\write8
 \openout8 = `presentation.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 505.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 505.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 561.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 561.
  (./presentation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 505.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 505.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 561.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 561.
 Package rerunfilecheck Info: File `presentation.out' has not changed.
-(rerunfilecheck)             Checksum: 8E7B9F9516C82581ABBC3B6CD8C41C64;163.
+(rerunfilecheck)             Checksum: 23875FBD16B2AF1E49694461FA6D22D4;196.
  ) 
 Here is how much of TeX's memory you used:
- 18184 strings out of 492616
- 347942 string characters out of 6129482
- 421865 words of memory out of 5000000
- 21545 multiletter control sequences out of 15000+600000
+ 18222 strings out of 492616
+ 348628 string characters out of 6129482
+ 424349 words of memory out of 5000000
+ 21567 multiletter control sequences out of 15000+600000
  14072 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,15n,63p,779b,849s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8
-.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on presentation.pdf (57 pages, 2400854 bytes).
+</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.
+pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on presentation.pdf (63 pages, 2671792 bytes).
 PDF statistics:
- 2536 PDF objects out of 2984 (max. 8388607)
- 1820 compressed objects within 19 object streams
- 118 named destinations out of 1000 (max. 500000)
- 1087 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2845 PDF objects out of 2984 (max. 8388607)
+ 2024 compressed objects within 21 object streams
+ 131 named destinations out of 1000 (max. 500000)
+ 1200 words of extra memory for PDF output out of 10000 (max. 10000000)
 
