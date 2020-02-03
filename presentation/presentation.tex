@@ -36,7 +36,6 @@
 % The first is discussing the background on E. coli, foraging, and how foraging might be used as an optimization algorithm.
 % The second section, which makes up the bulk of the presentation, is a step-by-step guide on how the final algorithm might be built up. We have discussed in class how crucial reproducability is for papers, especially papers in computer science and biology. Despite the fact that every paper we have read is essentially presenting an algorithm, not many papers take the time to clearly explain the algorithm. This paper is longer than the others and includes an entire page dedicated to the algorithm itself. This actually enabled me to write the algorithm myself with basically no issues in just a few hours. My goal today is for you guys to come away being able to implement this algorithm yourself as well.
 % The third and final section will be a discussion of the algorithm and the paper itself, with a few critiques. I will then open the floor for discussion.
-% I also have some extra results at the end so if you want to see them, make sure to ask during the question phase!
 \begin{frame}
 \frametitle{Outline}
 \tableofcontents
@@ -466,7 +465,7 @@ J_{cc}(\theta) = \sum_{i=1}^S &-d_\text{attract} \exp \left( -w_\text{attract} (
 
 % I just want to discuss a few caveats of this exploration of this algorithm.
 % First, I chose to use a highly nonconvex function to minimize. I chose to do this because I found that the function chosen by the author was quite simple with only a few local minima.
-% It is definitely worth investigating this optimization algorithm with other test functions. I did try out some others, feel free to ask me about them during questions.
+% It is definitely worth investigating this optimization algorithm with other test functions.
 % I also set the random seed to 17 for all my experiments for reproducability purposes. If I had chosen a different seed, it's possible that I could get better or worse results
 % I once tuned this algorithm's hyperparameters using this same algorithm with a fixed seed. It got awesome performance for that fixed seed, but the performance varied wildly by random seed.
 \begin{frame}
@@ -475,7 +474,7 @@ J_{cc}(\theta) = \sum_{i=1}^S &-d_\text{attract} \exp \left( -w_\text{attract} (
   \item<1-> This is only a single application:
   \begin{itemize}
     \item<1-> A single highly nonconvex function
-    \item<1-> Should try out other loss functions and applications (see post-presentation slides)
+    \item<1-> Should try out other loss functions and applications
   \end{itemize}
   \item<2-> Chose a single seed arbitrarily to run experiments:
   \begin{itemize}
