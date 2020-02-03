@@ -360,127 +360,127 @@ if __name__ == "__main__":
     """
     from losses import rastrigin as J
 
-    compare_all(J, filename='presentation/assets/compared')
+    # compare_all(J, filename='presentation/assets/compared')
 
-    # plot_surface(J,
-    #     filename='presentation/assets/rastrigin',
-    #     rng=(-5.12,5.12),
-    #     num=100,
-    #     cm=cm.rainbow)
-    #
-    # np.random.seed(17)
-    # evaluate_sb(J,
-    #     title=r'$p$=2, $c$=0.1, $N_c$=100',
-    #     filename='presentation/assets/rastrigin',
-    #     p=2,
-    #     c=0.1,
-    #     N_c=100,
-    #     rng=(-5.12,5.12))
-    #
-    # np.random.seed(17)
-    # plot_J_cc(title=r'$d_\mathregular{attract}$=0.1, $w_\mathregular{attract}$=0.2, $h_\mathregular{repellant}$=0.1, $w_\mathregular{repellant}$=10',
-    #     filename='presentation/assets/swarming',
-    #     S=3,
-    #     rng=(-5.12, 5.12),
-    #     num=100,
-    #     d_attract=0.1,
-    #     w_attract=0.2,
-    #     h_repellant=0.1,
-    #     w_repellant=10)
-    #
-    # np.random.seed(17)
-    # evaluate_col(J,
-    #     title=r'$S$=10, $p$=2, $c$=0.1, $N_c$=100' '\n' r'$d_\mathregular{attract}$=0.1, $w_\mathregular{attract}$=0.2, $h_\mathregular{repellant}$=0.1, $w_\mathregular{repellant}$=10',
-    #     filename='presentation/assets/rastrigin_colony',
-    #     S=10,
-    #     p=2,
-    #     c=0.1,
-    #     N_c=100,
-    #     rng=(-5.12,5.12),
-    #     d_attract=0.1,
-    #     w_attract=0.2,
-    #     h_repellant=0.1,
-    #     w_repellant=10)
-    #
-    # np.random.seed(17)
-    # evaluate_col(J,
-    #     title=r'$S$=10, $p$=2, $c$=0.1, $N_c$=100' '\n' r'$d_\mathregular{attract}$=100, $w_\mathregular{attract}$=0.01, $h_\mathregular{repellant}$=0.4, $w_\mathregular{repellant}$=0.01',
-    #     filename='presentation/assets/rastrigin_colony_tuned',
-    #     S=10,
-    #     p=2,
-    #     c=0.1,
-    #     N_c=100,
-    #     rng=(-5.12,5.12),
-    #     d_attract=100,
-    #     w_attract=0.01,
-    #     h_repellant=0.4,
-    #     w_repellant=0.01)
-    #
-    # np.random.seed(17)
-    # plot_J_cc(title=r'$S$=3, $p$=2, $d_\mathregular{attract}$=0.1, $w_\mathregular{attract}$=0.2, $h_\mathregular{repellant}$=0.1, $w_\mathregular{repellant}$=10',
-    #     filename='presentation/assets/swarming_tuned',
-    #     S=3,
-    #     rng=(-5.12, 5.12),
-    #     num=100,
-    #     d_attract=100,
-    #     w_attract=0.01,
-    #     h_repellant=0.4,
-    #     w_repellant=0.01)
-    #
-    # np.random.seed(17)
-    # evaluate_col_re(J,
-    #     title=r'$N_{re}$=4, $S$=10, $p$=2, $c$=0.1, $N_c$=100' '\n' r'$d_\mathregular{attract}$=100, $w_\mathregular{attract}$=0.01, $h_\mathregular{repellant}$=0.4, $w_\mathregular{repellant}$=0.01',
-    #     filename='presentation/assets/rastrigin_colony_re',
-    #     N_re=4,
-    #     S=10,
-    #     p=2,
-    #     c=0.1,
-    #     N_c=100,
-    #     rng=(-5.12,5.12),
-    #     d_attract=100,
-    #     w_attract=0.01,
-    #     h_repellant=0.4,
-    #     w_repellant=0.01)
-    #
-    # np.random.seed(17)
-    # evaluate_col(J,
-    #     title=r'$S$=10, $p$=2, $c$=0.1, $N_c$=100' '\n' r'$d_\mathregular{attract}$=100, $w_\mathregular{attract}$=0.01, $h_\mathregular{repellant}$=0.4, $w_\mathregular{repellant}$=0.01',
-    #     filename='presentation/assets/rastrigin_colony_400',
-    #     S=10,
-    #     p=2,
-    #     c=0.1,
-    #     N_c=400,
-    #     rng=(-5.12,5.12),
-    #     d_attract=100,
-    #     w_attract=0.01,
-    #     h_repellant=0.4,
-    #     w_repellant=0.01)
-    #
-    # np.random.seed(17)
-    # evaluate_col_ed(J,
-    #     title=r'$N_{ed}$=4, $p_{ed}$=0.25, $N_{re}$=4, $S$=10, $p$=2, $c$=0.1, $N_c$=100' '\n' r'$d_\mathregular{attract}$=100, $w_\mathregular{attract}$=0.01, $h_\mathregular{repellant}$=0.4, $w_\mathregular{repellant}$=0.01',
-    #     filename='presentation/assets/rastrigin_colony_ed',
-    #     N_ed=4,
-    #     p_ed=0.25,
-    #     N_re=4,
-    #     S=10,
-    #     p=2,
-    #     c=0.1,
-    #     N_c=100,
-    #     rng=(-5.12,5.12),
-    #     d_attract=100,
-    #     w_attract=0.01,
-    #     h_repellant=0.4,
-    #     w_repellant=0.01)
-    #
-    # np.random.seed(17)
-    # evaluate_pso(J,
-    #     title=r'$p$=2, $N$=100, $\mathregular{iter}$=160' '\n' r'$mu$=0.4, $c_1$=0.8, $c_2$=1.0',
-    #     filename='presentation/assets/pso',
-    #     p=2,
-    #     N=100,
-    #     iter=160,
-    #     rng=(-5.12, 5.12),
-    #     mu=0.4,
-    #     c_1=0.8,
-    #     c_2=1.0)
+    plot_surface(J,
+        filename='presentation/assets/rastrigin',
+        rng=(-5.12,5.12),
+        num=100,
+        cm=cm.rainbow)
+
+    np.random.seed(17)
+    evaluate_sb(J,
+        title=r'$p$=2, $c$=0.1, $N_c$=100',
+        filename='presentation/assets/rastrigin',
+        p=2,
+        c=0.1,
+        N_c=100,
+        rng=(-5.12,5.12))
+
+    np.random.seed(17)
+    plot_J_cc(title=r'$d_\mathregular{attract}$=0.1, $w_\mathregular{attract}$=0.2, $h_\mathregular{repellant}$=0.1, $w_\mathregular{repellant}$=10',
+        filename='presentation/assets/swarming',
+        S=3,
+        rng=(-5.12, 5.12),
+        num=100,
+        d_attract=0.1,
+        w_attract=0.2,
+        h_repellant=0.1,
+        w_repellant=10)
+
+    np.random.seed(17)
+    evaluate_col(J,
+        title=r'$S$=10, $p$=2, $c$=0.1, $N_c$=100' '\n' r'$d_\mathregular{attract}$=0.1, $w_\mathregular{attract}$=0.2, $h_\mathregular{repellant}$=0.1, $w_\mathregular{repellant}$=10',
+        filename='presentation/assets/rastrigin_colony',
+        S=10,
+        p=2,
+        c=0.1,
+        N_c=100,
+        rng=(-5.12,5.12),
+        d_attract=0.1,
+        w_attract=0.2,
+        h_repellant=0.1,
+        w_repellant=10)
+
+    np.random.seed(17)
+    evaluate_col(J,
+        title=r'$S$=10, $p$=2, $c$=0.1, $N_c$=100' '\n' r'$d_\mathregular{attract}$=100, $w_\mathregular{attract}$=0.01, $h_\mathregular{repellant}$=0.4, $w_\mathregular{repellant}$=0.01',
+        filename='presentation/assets/rastrigin_colony_tuned',
+        S=10,
+        p=2,
+        c=0.1,
+        N_c=100,
+        rng=(-5.12,5.12),
+        d_attract=100,
+        w_attract=0.01,
+        h_repellant=0.4,
+        w_repellant=0.01)
+
+    np.random.seed(17)
+    plot_J_cc(title=r'$d_\mathregular{attract}$=100, $w_\mathregular{attract}$=0.01, $h_\mathregular{repellant}$=0.4, $w_\mathregular{repellant}$=0.01',
+        filename='presentation/assets/swarming_tuned',
+        S=3,
+        rng=(-5.12, 5.12),
+        num=100,
+        d_attract=100,
+        w_attract=0.01,
+        h_repellant=0.4,
+        w_repellant=0.01)
+
+    np.random.seed(17)
+    evaluate_col_re(J,
+        title=r'$N_{re}$=4, $S$=10, $p$=2, $c$=0.1, $N_c$=100' '\n' r'$d_\mathregular{attract}$=100, $w_\mathregular{attract}$=0.01, $h_\mathregular{repellant}$=0.4, $w_\mathregular{repellant}$=0.01',
+        filename='presentation/assets/rastrigin_colony_re',
+        N_re=4,
+        S=10,
+        p=2,
+        c=0.1,
+        N_c=100,
+        rng=(-5.12,5.12),
+        d_attract=100,
+        w_attract=0.01,
+        h_repellant=0.4,
+        w_repellant=0.01)
+
+    np.random.seed(17)
+    evaluate_col(J,
+        title=r'$S$=10, $p$=2, $c$=0.1, $N_c$=100' '\n' r'$d_\mathregular{attract}$=100, $w_\mathregular{attract}$=0.01, $h_\mathregular{repellant}$=0.4, $w_\mathregular{repellant}$=0.01',
+        filename='presentation/assets/rastrigin_colony_400',
+        S=10,
+        p=2,
+        c=0.1,
+        N_c=400,
+        rng=(-5.12,5.12),
+        d_attract=100,
+        w_attract=0.01,
+        h_repellant=0.4,
+        w_repellant=0.01)
+
+    np.random.seed(17)
+    evaluate_col_ed(J,
+        title=r'$N_{ed}$=4, $p_{ed}$=0.25, $N_{re}$=4, $S$=10, $p$=2, $c$=0.1, $N_c$=100' '\n' r'$d_\mathregular{attract}$=100, $w_\mathregular{attract}$=0.01, $h_\mathregular{repellant}$=0.4, $w_\mathregular{repellant}$=0.01',
+        filename='presentation/assets/rastrigin_colony_ed',
+        N_ed=4,
+        p_ed=0.25,
+        N_re=4,
+        S=10,
+        p=2,
+        c=0.1,
+        N_c=100,
+        rng=(-5.12,5.12),
+        d_attract=100,
+        w_attract=0.01,
+        h_repellant=0.4,
+        w_repellant=0.01)
+
+    np.random.seed(17)
+    evaluate_pso(J,
+        title=r'$p$=2, $N$=100, $\mathregular{iter}$=160' '\n' r'$mu$=0.4, $c_1$=0.8, $c_2$=1.0',
+        filename='presentation/assets/pso',
+        p=2,
+        N=100,
+        iter=160,
+        rng=(-5.12, 5.12),
+        mu=0.4,
+        c_1=0.8,
+        c_2=1.0)

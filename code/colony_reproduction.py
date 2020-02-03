@@ -18,17 +18,11 @@ def simulate(J, S=10, p=2, c=0.1, N_re=4, N_c=100, rng=(-5.12,5.12), d_attract=0
             for i in range(S):
                 phi = np.random.uniform(low=-1, high=1, size=p)
                 phi /= np.linalg.norm(phi)
-
                 J_last = J(theta[i]) + J_cc(theta[i])
-
                 theta[i] = theta[i] + c*phi
-
-                J_new = J(theta[i]) + J_cc(theta[i])
-
-                while J_new < J_last:
-                    J_last = J_new
+                while J(theta[i]) + J_cc(theta[i]) < J_last:
+                    J_last = J(theta[i]) + J_cc(theta[i])
                     theta[i] = theta[i] + c*phi
-                    J_new = J(theta[i]) + J_cc(theta[i])
 
                 theta_histories[k, i, j] = theta[i].copy()
                 J_histories[k, i, j] = J(theta[i])
