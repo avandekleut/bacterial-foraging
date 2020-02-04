@@ -320,6 +320,7 @@ INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam1
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
+INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmti12.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 INPUT assets/ecoli.png
@@ -329,7 +330,6 @@ INPUT assets/ecoli.png
 INPUT ./assets/ecoli.png
 INPUT assets/ecoli.png
 INPUT ./assets/ecoli.png
-INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmr9.tfm
 INPUT assets/rastrigin.png
 INPUT ./assets/rastrigin.png
@@ -401,12 +401,16 @@ INPUT ./assets/rastrigin_colony_ed_2_J.pdf
 INPUT assets/rastrigin_colony_ed_3_J.pdf
 INPUT ./assets/rastrigin_colony_ed_3_J.pdf
 INPUT ./assets/rastrigin_colony_ed_3_J.pdf
-INPUT assets/yikes.jpg
-INPUT ./assets/yikes.jpg
-INPUT ./assets/yikes.jpg
 INPUT assets/code.jpg
 INPUT ./assets/code.jpg
 INPUT ./assets/code.jpg
+INPUT assets/yikes.jpg
+INPUT ./assets/yikes.jpg
+INPUT ./assets/yikes.jpg
+INPUT assets/yikes.jpg
+INPUT ./assets/yikes.jpg
+INPUT assets/yikes.jpg
+INPUT ./assets/yikes.jpg
 INPUT assets/compared.pdf
 INPUT ./assets/compared.pdf
 INPUT ./assets/compared.pdf

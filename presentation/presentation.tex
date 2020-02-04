@@ -61,10 +61,10 @@
   \item<2-> $\theta$ can represent the position of an organism in its environment
   \item<3-> $J$ can represent the concentration of nutrients and noxious stimuli
   \begin{itemize}
-    \item<3-> smaller values of $J$ = more nutrients, less noxious stimuli
+    \item<3-> lower values of $J$ = more nutrients, less noxious stimuli
     \item<3-> higher values of $J$ = more noxious stimuli, less nutrients
   \end{itemize}
-  \item<4-> Minimizing $J$ = foraging
+  \item<4-> Minimizing $J$ = finding best $\theta$ = foraging behaviour
 \end{itemize}
 \end{frame}
 
@@ -73,7 +73,7 @@
 \frametitle{\textit{E. coli} as a model organism}
 \begin{itemize}
   \item<1-> Want foraging algorithm to be grounded in biology
-  \item<2-> Model organism
+  \item<2-> Chose \textit{E. coli} to base algorithm on
   \begin{itemize}
     \item<2-> Highly studied
     \item<2-> Well-characterized foraging behaviour
@@ -163,10 +163,10 @@ $$J(\theta) = An + \sum_{i=1}^n \left( x_i^2 - A \cos(2 \pi x_i) \right)$$
 \begin{frame}
 \frametitle{$J_{cc}$ and swarming behaviour}
 \begin{itemize}
-  \item \textit{E. coli} do social foraging
-  \item Secrete a substance to indicate to attract nearby \textit{E. coli} and encourage swarming
-  \item Also want to avoid crowding
-  \item Use sum of two Gaussian functions to model this
+  \item<1-> \textit{E. coli} do social foraging
+  \item<2-> Secrete a substance to indicate to attract nearby \textit{E. coli} and encourage swarming
+  \item<3-> Also want to avoid crowding
+  \item<4-> Add an auxiliary loss function $J_{cc}(\theta)$ to loss function to encourage swarming
 \end{itemize}
 \end{frame}
 
@@ -374,6 +374,14 @@ J_{cc}(\theta) = \sum_{i=1}^S &-d_\text{attract} \exp \left( -w_\text{attract} (
 \end{columns}
 \end{frame}
 
+\begin{frame}
+\frametitle{Implementation}
+\begin{center}
+\includegraphics[scale=0.25]{assets/code}
+\href{github.com/avandekleut/bacterial-foraging}{https://github.com/avandekleut/bacterial-foraging/}
+\end{center}
+\end{frame}
+
 \section{Discussion}
 
 \begin{frame}
@@ -421,16 +429,12 @@ J_{cc}(\theta) = \sum_{i=1}^S &-d_\text{attract} \exp \left( -w_\text{attract} (
 \includegraphics<1->[scale=0.3]{assets/yikes}
 \end{center}
 \begin{itemize}
-  \item<1-> It is not clear if the goal is create a simulation of \textit{E. coli} foraging behaviour or to create another biologically-inspired optimization algorithm
+  \item<2-> It is not clear if the goal is create a simulation of \textit{E. coli} foraging behaviour or to create another biologically-inspired optimization algorithm
+  \item<3-> Unfortunately, it does not do either very well
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{Discussion}
-\begin{center}
-\includegraphics[scale=0.25]{assets/code}
-\href{github.com/avandekleut/bacterial-foraging}{https://github.com/avandekleut/bacterial-foraging/}
-\end{center}
 \end{frame}
 
 \begin{frame}

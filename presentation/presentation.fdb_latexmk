@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1580836968 "presentation.tex" "presentation.pdf" "presentation" 1580836975
+["pdflatex"] 1580844480 "presentation.tex" "presentation.pdf" "presentation" 1580844488
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -224,16 +224,16 @@
   "assets/swarming_tuned.png" 1580751764 83473 0bd367c2537a3c091c07a6ac00400cf6 ""
   "assets/transmission.jpg" 1580509856 38716 d2777305f256f78b24840babd035b508 ""
   "assets/yikes.jpg" 1580521847 62042 ee3b1278bab46383fd818b873a8023c9 ""
-  "presentation.aux" 1580836975 5830 defda2b4583ace8738c0b2ade9701aa3 "pdflatex"
-  "presentation.nav" 1580836975 3581 749400b57b8814d24c7277ea240ba9a6 "pdflatex"
-  "presentation.out" 1580836975 161 e27d2c55cb748c8dfdf9fad00858466b "pdflatex"
-  "presentation.tex" 1580836961 15147 a03293f881498925f68e51c8465c6e6f ""
-  "presentation.toc" 1580836975 165 87a15d8a840d5d6fcddbe9f6f1c7dbac "pdflatex"
+  "presentation.aux" 1580844488 5959 c308d65a6933c8ad61cc3910f886d2c4 "pdflatex"
+  "presentation.nav" 1580844488 3674 46c5491a742650a3ffc8d8bad2b69154 "pdflatex"
+  "presentation.out" 1580844488 161 e27d2c55cb748c8dfdf9fad00858466b "pdflatex"
+  "presentation.tex" 1580844471 15353 0e9ed827a447e26f23549ceed7e85cc6 ""
+  "presentation.toc" 1580844488 165 0b687900a3f853a789bafc01b69e7a68 "pdflatex"
   (generated)
-  "presentation.nav"
   "presentation.aux"
+  "presentation.out"
+  "presentation.nav"
   "presentation.snm"
   "presentation.toc"
-  "presentation.pdf"
-  "presentation.out"
   "presentation.log"
+  "presentation.pdf"
