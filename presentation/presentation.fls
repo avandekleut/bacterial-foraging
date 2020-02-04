@@ -401,17 +401,15 @@ INPUT ./assets/rastrigin_colony_ed_2_J.pdf
 INPUT assets/rastrigin_colony_ed_3_J.pdf
 INPUT ./assets/rastrigin_colony_ed_3_J.pdf
 INPUT ./assets/rastrigin_colony_ed_3_J.pdf
-INPUT assets/compared.pdf
-INPUT ./assets/compared.pdf
-INPUT ./assets/compared.pdf
 INPUT assets/yikes.jpg
 INPUT ./assets/yikes.jpg
-INPUT ./assets/yikes.jpg
-INPUT assets/yikes.jpg
 INPUT ./assets/yikes.jpg
 INPUT assets/code.jpg
 INPUT ./assets/code.jpg
 INPUT ./assets/code.jpg
+INPUT assets/compared.pdf
+INPUT ./assets/compared.pdf
+INPUT ./assets/compared.pdf
 INPUT assets/pso_J.pdf
 INPUT ./assets/pso_J.pdf
 INPUT ./assets/pso_J.pdf
@@ -445,4 +443,3 @@ INPUT /usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pf
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb
-INPUT /usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
